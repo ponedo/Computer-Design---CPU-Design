@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<project xmlns="http://www.xilinx.com/XMLSchema" xmlns:xil_pn="http://www.xilinx.com/XMLSchema">
+
+  <header>
+    <!-- ISE source project file created by Project Navigator.             -->
+    <!--                                                                   -->
+    <!-- This file contains project source information including a list of -->
+    <!-- project source files, project and process properties.  This file, -->
+    <!-- along with the project source files, is sufficient to open and    -->
+    <!-- implement in ISE Project Navigator.                               -->
+    <!--                                                                   -->
+    <!-- Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved. -->
+  </header>
+
+  <version xil_pn:ise_version="14.7" xil_pn:schema_version="2"/>
+
+  <files>
+    <file xil_pn:name="Codes/Org-Sword.ucf" xil_pn:type="FILE_UCF">
+      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
+    </file>
+    <file xil_pn:name="Codes/PCPU_INTR/ALU.v" xil_pn:type="FILE_VERILOG">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="2"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="19"/>
+    </file>
+    <file xil_pn:name="Codes/PCPU_INTR/ALUctrl.v" xil_pn:type="FILE_VERILOG">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="4"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="18"/>
+    </file>
+    <file xil_pn:name="Codes/PCPU_INTR/BE.v" xil_pn:type="FILE_VERILOG">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="5"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="17"/>
+    </file>
+    <file xil_pn:name="Codes/PCPU_INTR/BrchCtrl.v" xil_pn:type="FILE_VERILOG">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="7"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="16"/>
+    </file>
+    <file xil_pn:name="Codes/PCPU_INTR/Cause.v" xil_pn:type="FILE_VERILOG">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="8"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="15"/>
+    </file>
+    <file xil_pn:name="Codes/PCPU_INTR/dm.v" xil_pn:type="FILE_VERILOG">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="10"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
+    </file>
+    <file xil_pn:name="Codes/PCPU_INTR/EPC.v" xil_pn:type="FILE_VERILOG">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="11"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="13"/>
+    </file>
+    <file xil_pn:name="Codes/PCPU_INTR/EX_MEM.v" xil_pn:type="FILE_VERILOG">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="12"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="11"/>
+    </file>
+    <file xil_pn:name="Codes/PCPU_INTR/EXT.v" xil_pn:type="FILE_VERILOG">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="13"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="12"/>
+    </file>
+    <file xil_pn:name="Codes/PCPU_INTR/EXTload.v" xil_pn:type="FILE_VERILOG">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="15"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
+    </file>
+    <file xil_pn:name="Codes/PCPU_INTR/Forwarding_unit.v" xil_pn:type="FILE_VERILOG">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="16"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="10"/>
+    </file>
+    <file xil_pn:name="Codes/PCPU_INTR/Hazard_detection_unit.v" xil_pn:type="FILE_VERILOG">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="17"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="9"/>
+    </file>
+    <file xil_pn:name="Codes/PCPU_INTR/ID_EX.v" xil_pn:type="FILE_VERILOG">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="18"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="8"/>
+    </file>
+    <file xil_pn:name="Codes/PCPU_INTR/IF_ID.v" xil_pn:type="FILE_VERILOG">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="19"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="7"/>
+    </file>
+    <file xil_pn:name="Codes/PCPU_INTR/im.v" xil_pn:type="FILE_VERILOG">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="20"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
+    </file>
+    <file xil_pn:name="Codes/PCPU_INTR/MEM_WB.v" xil_pn:type="FILE_VERILOG">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="23"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="6"/>
+    </file>
+    <file xil_pn:name="Codes/PCPU_INTR/mips_tb.v" xil_pn:type="FILE_VERILOG">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="24"/>
+      <association xil_pn:name="PostMapSimulation" xil_pn:seqID="24"/>
+      <association xil_pn:name="PostRouteSimulation" xil_pn:seqID="24"/>
+      <association xil_pn:name="PostTranslateSimulation" xil_pn:seqID="24"/>
+    </file>
+    <file xil_pn:name="Codes/PCPU_INTR/mux_2.v" xil_pn:type="FILE_VERILOG">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="25"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="5"/>
+    </file>
+    <file xil_pn:name="Codes/PCPU_INTR/mux_4.v" xil_pn:type="FILE_VERILOG">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="26"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="4"/>
+    </file>
+    <file xil_pn:name="Codes/PCPU_INTR/PC.v" xil_pn:type="FILE_VERILOG">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="27"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="3"/>
+    </file>
+    <file xil_pn:name="Codes/PCPU_INTR/RegFile.v" xil_pn:type="FILE_VERILOG">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="30"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="2"/>
+    </file>
+    <file xil_pn:name="Codes/PCPU_INTR/sc_interrupt_tb.v" xil_pn:type="FILE_VERILOG">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="32"/>
+      <association xil_pn:name="PostMapSimulation" xil_pn:seqID="32"/>
+      <association xil_pn:name="PostRouteSimulation" xil_pn:seqID="32"/>
+      <association xil_pn:name="PostTranslateSimulation" xil_pn:seqID="32"/>
+    </file>
+    <file xil_pn:name="Codes/PCPU_INTR/Status.v" xil_pn:type="FILE_VERILOG">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="33"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="1"/>
+    </file>
+    <file xil_pn:name="Codes/PCPU_INTR/tcl_stacktrace.txt" xil_pn:type="FILE_USERDOC"/>
+    <file xil_pn:name="Codes/PCPU_INTR/test.txt" xil_pn:type="FILE_USERDOC"/>
+    <file xil_pn:name="Codes/IO/clk_div.v" xil_pn:type="FILE_VERILOG">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="37"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="36"/>
+    </file>
+    <file xil_pn:name="Codes/IO/Counter_3_IO.v" xil_pn:type="FILE_VERILOG">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="38"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="35"/>
+    </file>
+    <file xil_pn:name="Codes/IO/MIO_BUS.ngc" xil_pn:type="FILE_NGC">
+      <association xil_pn:name="Implementation" xil_pn:seqID="34"/>
+    </file>
+    <file xil_pn:name="Codes/IO/MIO_BUS_IO.v" xil_pn:type="FILE_VERILOG">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="40"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="33"/>
+    </file>
+    <file xil_pn:name="Codes/IO/Multi_8CH32.ngc" xil_pn:type="FILE_NGC">
+      <association xil_pn:name="Implementation" xil_pn:seqID="32"/>
+    </file>
+    <file xil_pn:name="Codes/IO/Multi_8CH32_IO.v" xil_pn:type="FILE_VERILOG">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="42"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="31"/>
+    </file>
+    <file xil_pn:name="Codes/IO/SAnti_jitter.ngc" xil_pn:type="FILE_NGC">
+      <association xil_pn:name="Implementation" xil_pn:seqID="30"/>
+    </file>
+    <file xil_pn:name="Codes/IO/SAnti_jitter_IO.v" xil_pn:type="FILE_VERILOG">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="44"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="29"/>
+    </file>
+    <file xil_pn:name="Codes/IO/SEnter_2_32.ngc" xil_pn:type="FILE_NGC">
+      <association xil_pn:name="Implementation" xil_pn:seqID="28"/>
+    </file>
+    <file xil_pn:name="Codes/IO/SEnter_2_32_IO.v" xil_pn:type="FILE_VERILOG">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="46"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="27"/>
+    </file>
+    <file xil_pn:name="Codes/IO/SPIO.ngc" xil_pn:type="FILE_NGC">
+      <association xil_pn:name="Implementation" xil_pn:seqID="26"/>
+    </file>
+    <file xil_pn:name="Codes/IO/SPIO_IO.v" xil_pn:type="FILE_VERILOG">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="48"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="25"/>
+    </file>
+    <file xil_pn:name="Codes/IO/SSeg7_Dev.ngc" xil_pn:type="FILE_NGC">
+      <association xil_pn:name="Implementation" xil_pn:seqID="24"/>
+    </file>
+    <file xil_pn:name="Codes/IO/SSeg7_Dev_IO.v" xil_pn:type="FILE_VERILOG">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="50"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="23"/>
+    </file>
+    <file xil_pn:name="ipcore_dir/ROM_D.xco" xil_pn:type="FILE_COREGEN">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="52"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="20"/>
+    </file>
+    <file xil_pn:name="ipcore_dir/RAM_B.xco" xil_pn:type="FILE_COREGEN">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="59"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="21"/>
+    </file>
+    <file xil_pn:name="Codes/top (2).v" xil_pn:type="FILE_VERILOG">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="134"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="37"/>
+    </file>
+    <file xil_pn:name="Codes/PCPU_INTR/PCPU_INTR.v" xil_pn:type="FILE_VERILOG">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="129"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="22"/>
+    </file>
+    <file xil_pn:name="Codes/PCPU_INTR/Ctrl.v" xil_pn:type="FILE_VERILOG">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="130"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="14"/>
+    </file>
+    <file xil_pn:name="ipcore_dir/ROM_D.xise" xil_pn:type="FILE_COREGENISE">
+      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
+    </file>
+    <file xil_pn:name="ipcore_dir/RAM_B.xise" xil_pn:type="FILE_COREGENISE">
+      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
+    </file>
+  </files>
+
+  <properties>
+    <property xil_pn:name="Device" xil_pn:value="xc7k160t" xil_pn:valueState="non-default"/>
+    <property xil_pn:name="Device Family" xil_pn:value="Kintex7" xil_pn:valueState="non-default"/>
+    <property xil_pn:name="Implementation Top" xil_pn:value="Module|Top_OExp03_IP2SOC" xil_pn:valueState="non-default"/>
+    <property xil_pn:name="Implementation Top File" xil_pn:value="Codes/top (2).v" xil_pn:valueState="non-default"/>
+    <property xil_pn:name="Implementation Top Instance Path" xil_pn:value="/Top_OExp03_IP2SOC" xil_pn:valueState="non-default"/>
+    <property xil_pn:name="Package" xil_pn:value="ffg676" xil_pn:valueState="non-default"/>
+    <property xil_pn:name="Preferred Language" xil_pn:value="Verilog" xil_pn:valueState="default"/>
+    <property xil_pn:name="Property Specification in Project File" xil_pn:value="Store non-default values only" xil_pn:valueState="non-default"/>
+    <property xil_pn:name="Simulator" xil_pn:value="ISim (VHDL/Verilog)" xil_pn:valueState="default"/>
+    <property xil_pn:name="Speed Grade" xil_pn:value="-2L" xil_pn:valueState="non-default"/>
+    <property xil_pn:name="Synthesis Tool" xil_pn:value="XST (VHDL/Verilog)" xil_pn:valueState="default"/>
+    <property xil_pn:name="Top-Level Source Type" xil_pn:value="HDL" xil_pn:valueState="default"/>
+    <property xil_pn:name="Working Directory" xil_pn:value="." xil_pn:valueState="non-default"/>
+    <!--                                                                                  -->
+    <!-- The following properties are for internal use only. These should not be modified.-->
+    <!--                                                                                  -->
+    <property xil_pn:name="PROP_DesignName" xil_pn:value="Lab_PCPU_INTR" xil_pn:valueState="non-default"/>
+    <property xil_pn:name="PROP_DevFamilyPMName" xil_pn:value="kintex7" xil_pn:valueState="default"/>
+    <property xil_pn:name="PROP_intProjectCreationTimestamp" xil_pn:value="2016-02-10T19:39:39" xil_pn:valueState="non-default"/>
+    <property xil_pn:name="PROP_intWbtProjectID" xil_pn:value="F6887DA6CD3A4827BAB9B57C1EC89ED0" xil_pn:valueState="non-default"/>
+    <property xil_pn:name="PROP_intWorkingDirLocWRTProjDir" xil_pn:value="Same" xil_pn:valueState="non-default"/>
+    <property xil_pn:name="PROP_intWorkingDirUsed" xil_pn:value="No" xil_pn:valueState="non-default"/>
+  </properties>
+
+  <bindings/>
+
+  <libraries/>
+
+  <autoManagedFiles>
+    <!-- The following files are identified by `include statements in verilog -->
+    <!-- source files and are automatically managed by Project Navigator.     -->
+    <!--                                                                      -->
+    <!-- Do not hand-edit this section, as it will be overwritten when the    -->
+    <!-- project is analyzed based on files automatically identified as       -->
+    <!-- include files.                                                       -->
+    <file xil_pn:name="Codes/PCPU_INTR/ALU_defines.v" xil_pn:type="FILE_VERILOG"/>
+    <file xil_pn:name="Codes/PCPU_INTR/Instr_defines.v" xil_pn:type="FILE_VERILOG"/>
+    <file xil_pn:name="Codes/PCPU_INTR/Brch_defines.v" xil_pn:type="FILE_VERILOG"/>
+    <file xil_pn:name="Codes/PCPU_INTR/EXT_defines.v" xil_pn:type="FILE_VERILOG"/>
+    <file xil_pn:name="Codes/PCPU_INTR/INTR_defines.v" xil_pn:type="FILE_VERILOG"/>
+  </autoManagedFiles>
+
+</project>

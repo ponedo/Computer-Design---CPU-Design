@@ -1,0 +1,567 @@
+m255
+K3
+13
+cModel Technology
+Z0 dF:\Program Files\modeltech_10.1a\examples\SOC
+T_opt
+V=Y>bkJQH?]K^SS<:Vh7<B2
+04 15 4 work sc_interrupt_tb fast 0
+=1-54ee75a6fd27-5b141aeb-1a7-2314
+o-quiet -auto_acc_if_foreign -work work +acc
+n@_opt
+Z1 OE;O;10.1a;51
+T_opt1
+VTWaiMK71cNWA<F0FaK=5E3
+04 6 4 work MEM_WB fast 0
+=1-54ee75a6fd27-5b14189c-1cd-1d70
+o-quiet -auto_acc_if_foreign -work work
+n@_opt1
+R1
+Z2 dF:\Program Files\modeltech_10.1a\examples\SOC
+vALU
+IE=NNBTXGhQo<DjQ>l<[jd3
+VIz?gO^TPo^aU?90m5TI=P3
+Z3 dF:\Program Files\modeltech_10.1a\examples\PCPU_INTR
+w1527964676
+8F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/ALU.v
+FF:/Program Files/modeltech_10.1a/examples/PCPU_INTR/ALU.v
+L0 2
+Z4 OE;L;10.1a;51
+r1
+31
+Z5 o-work work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+n@a@l@u
+!s100 ]JeAFe[ge;8^>ScI;R@cE3
+!s90 -reportprogress|300|-work|work|-vopt|F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/ALU.v|
+!s108 1528044251.887000
+!s107 ./ALU_defines.v|F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/ALU.v|
+!i10b 1
+!s85 0
+vALUCtrl
+IK3=6me>`h>d3eCl4QLJGk3
+VebTQ53j^6YXWbfYN:n=o^1
+R3
+w1526285218
+8F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/ALUctrl.v
+FF:/Program Files/modeltech_10.1a/examples/PCPU_INTR/ALUctrl.v
+L0 3
+R4
+r1
+31
+R5
+n@a@l@u@ctrl
+!s100 J]C3na_ChZ0jzIOMBRd;91
+!s90 -reportprogress|300|-work|work|-vopt|F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/ALUctrl.v|
+!s108 1528044252.097000
+!s107 ./Instr_defines.v|./ALU_defines.v|F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/ALUctrl.v|
+!i10b 1
+!s85 0
+vBE
+I=H>@T[MLl[2[bE2k`FS@;1
+V7l2C0g:UGnLaOTA;N_YVd0
+R3
+w1452954320
+8F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/BE.v
+FF:/Program Files/modeltech_10.1a/examples/PCPU_INTR/BE.v
+L0 2
+R4
+r1
+31
+R5
+n@b@e
+!s100 R^LUg>]>^AXG?6Fk7E7VA3
+!s90 -reportprogress|300|-work|work|-vopt|F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/BE.v|
+!s108 1528044252.222000
+!s107 ./Instr_defines.v|F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/BE.v|
+!i10b 1
+!s85 0
+vBrchCtrl
+IFe8n<FobQLYP0FUHWgLNK1
+VRN>@<@gk@7hJL=XOe>;]]1
+R3
+w1452956988
+8F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/BrchCtrl.v
+FF:/Program Files/modeltech_10.1a/examples/PCPU_INTR/BrchCtrl.v
+L0 2
+R4
+r1
+31
+R5
+n@brch@ctrl
+!s100 RU2QBSE7hoCjO8IPZ6c@:0
+!s90 -reportprogress|300|-work|work|-vopt|F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/BrchCtrl.v|
+!s108 1528044252.451000
+!s107 ./Brch_defines.v|F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/BrchCtrl.v|
+!i10b 1
+!s85 0
+vCause
+I9h3Xekg0mhRo2AOWg64Yf1
+VG50@LWh>mU?WT8NPmC3SM1
+R3
+w1527875424
+8F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/Cause.v
+FF:/Program Files/modeltech_10.1a/examples/PCPU_INTR/Cause.v
+L0 1
+R4
+r1
+31
+R5
+n@cause
+!s100 7fQco<R>`2KYRe`I9e4TB1
+!s90 -reportprogress|300|-work|work|-vopt|F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/Cause.v|
+!s108 1528044257.758000
+!s107 F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/Cause.v|
+!i10b 1
+!s85 0
+vCtrl
+I71UVNTz0lgQH5jQo?C99b1
+VDB`k3`A^PTJif51l<KRWd0
+R3
+w1528043828
+8F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/Ctrl.v
+FF:/Program Files/modeltech_10.1a/examples/PCPU_INTR/Ctrl.v
+L0 7
+R4
+r1
+31
+R5
+n@ctrl
+!s100 Pb0fGE6Oen[]4>=0=@CP63
+!s90 -reportprogress|300|-work|work|-vopt|F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/Ctrl.v|
+!s108 1528044252.592000
+!s107 ./INTR_defines.v|./Brch_defines.v|./Instr_defines.v|./EXT_defines.v|./ALU_defines.v|F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/Ctrl.v|
+!i10b 1
+!s85 0
+vDM
+IY48MR>NE5i@1o;oQ>YjPN1
+V`<K1MdJ;>j5A[LEfBm8Th1
+R3
+w1518957568
+8F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/dm.v
+FF:/Program Files/modeltech_10.1a/examples/PCPU_INTR/dm.v
+L0 1
+R4
+r1
+31
+R5
+n@d@m
+!s100 :1`QVIYQF^g3>^ciGzM5e1
+!s90 -reportprogress|300|-work|work|-vopt|F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/dm.v|
+!s108 1528044252.731000
+!s107 F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/dm.v|
+!i10b 1
+!s85 0
+vEPC
+I`mnX1DAZV]H6b;2@?BlmJ1
+VkOTdSO@5Hj_hV2Efl934o3
+R3
+w1527875423
+8F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/EPC.v
+FF:/Program Files/modeltech_10.1a/examples/PCPU_INTR/EPC.v
+L0 1
+R4
+r1
+31
+R5
+n@e@p@c
+!s100 A^UL[ghe:^BJ?IX[adDO_2
+!s90 -reportprogress|300|-work|work|-vopt|F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/EPC.v|
+!s108 1528044257.626000
+!s107 F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/EPC.v|
+!i10b 1
+!s85 0
+vEX_MEM
+I94D7RSKZP<=`2z1LKXzdi0
+VVUJcf__f[CE2m1dlVno]Y2
+R3
+w1528001823
+8F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/EX_MEM.v
+FF:/Program Files/modeltech_10.1a/examples/PCPU_INTR/EX_MEM.v
+L0 2
+R4
+r1
+31
+R5
+n@e@x_@m@e@m
+!s100 ^<`zbPGTjRH:FK_m_:N2C3
+!s90 -reportprogress|300|-work|work|-vopt|F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/EX_MEM.v|
+!s108 1528044252.924000
+!s107 F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/EX_MEM.v|
+!i10b 1
+!s85 0
+vEXT
+IGV?RALT=ci3S93GSK@6GF3
+V38B4VUVjg?H_gmQS2=XdX1
+R3
+w1511062920
+8F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/EXT.v
+FF:/Program Files/modeltech_10.1a/examples/PCPU_INTR/EXT.v
+L0 2
+R4
+r1
+31
+R5
+n@e@x@t
+!s100 `GEZ[d`g`6ozhEdVa1k3R3
+!s90 -reportprogress|300|-work|work|-vopt|F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/EXT.v|
+!s108 1528044253.057000
+!s107 ./EXT_defines.v|F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/EXT.v|
+!i10b 1
+!s85 0
+vEXTload
+IFo7<9P77YMf97EUPa:OQ80
+Vd]4iHIB8UTRWbn8o9P68J3
+R3
+w1514201476
+8F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/EXTload.v
+FF:/Program Files/modeltech_10.1a/examples/PCPU_INTR/EXTload.v
+L0 1
+R4
+r1
+31
+R5
+n@e@x@tload
+!s100 65NbILPn@CV:E7XXG4gmf2
+!s90 -reportprogress|300|-work|work|-vopt|F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/EXTload.v|
+!s108 1528044253.260000
+!s107 F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/EXTload.v|
+!i10b 1
+!s85 0
+vForwarding_unit
+IY]B@V;17bn[kEgEm=M3iK3
+V7bdYS^ng1Z@UCUMQ>XgkL0
+R3
+w1528004314
+8F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/Forwarding_unit.v
+FF:/Program Files/modeltech_10.1a/examples/PCPU_INTR/Forwarding_unit.v
+L0 2
+R4
+r1
+31
+R5
+n@forwarding_unit
+!s100 h0oa:TQZC9_K<:UPH19ni0
+!s90 -reportprogress|300|-work|work|-vopt|F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/Forwarding_unit.v|
+!s108 1528044253.373000
+!s107 F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/Forwarding_unit.v|
+!i10b 1
+!s85 0
+vHazard_detection_unit
+IkD;CF2Y_?c;V<`^;=<[1G1
+VEo:^nG]0?7m:7mG[9?N1Z2
+R3
+w1527965217
+8F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/Hazard_detection_unit.v
+FF:/Program Files/modeltech_10.1a/examples/PCPU_INTR/Hazard_detection_unit.v
+L0 2
+R4
+r1
+31
+R5
+n@hazard_detection_unit
+!s100 olZBHHN1YU<EjO1SbEHd:2
+!s90 -reportprogress|300|-work|work|-vopt|F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/Hazard_detection_unit.v|
+!s108 1528044253.519000
+!s107 F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/Hazard_detection_unit.v|
+!i10b 1
+!s85 0
+vID_EX
+IP0JU8Mi]VgIK>4`2>ZX6f0
+V8GzW@:0M5?P]?9YDK:kHC2
+R3
+w1527965040
+8F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/ID_EX.v
+FF:/Program Files/modeltech_10.1a/examples/PCPU_INTR/ID_EX.v
+L0 2
+R4
+r1
+31
+R5
+n@i@d_@e@x
+!s100 WVA:;gUE4kY>^P[n<HmmZ2
+!s90 -reportprogress|300|-work|work|-vopt|F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/ID_EX.v|
+!s108 1528044253.663000
+!s107 F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/ID_EX.v|
+!i10b 1
+!s85 0
+vIF_ID
+IYZgC`TM18NSo12KgoLjWm1
+VSKI_SCKVJOmOW=ad69WZm2
+R3
+w1527842287
+8F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/IF_ID.v
+FF:/Program Files/modeltech_10.1a/examples/PCPU_INTR/IF_ID.v
+L0 2
+R4
+r1
+31
+R5
+n@i@f_@i@d
+!s100 [0PNBSDR16k7HT9jBegFn1
+!s90 -reportprogress|300|-work|work|-vopt|F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/IF_ID.v|
+!s108 1528044253.816000
+!s107 F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/IF_ID.v|
+!i10b 1
+!s85 0
+vIM
+IcDLlQ?lbVbHZ`WMQ<gfWB3
+VgdljVRhH9m_:H]z3YbHYN2
+R3
+w1518934970
+8F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/im.v
+FF:/Program Files/modeltech_10.1a/examples/PCPU_INTR/im.v
+L0 1
+R4
+r1
+31
+R5
+n@i@m
+!s100 PA2^F9YM]IkYY0^M;bIYR3
+!s90 -reportprogress|300|-work|work|-vopt|F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/im.v|
+!s108 1528044253.966000
+!s107 F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/im.v|
+!i10b 1
+!s85 0
+vMEM_WB
+I3<mI>zU_90_=1:gOE;I6h3
+Vzhh4_>bV5HWWQV@]BhOTK1
+R3
+w1527965021
+8F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/MEM_WB.v
+FF:/Program Files/modeltech_10.1a/examples/PCPU_INTR/MEM_WB.v
+L0 2
+R4
+r1
+31
+R5
+n@m@e@m_@w@b
+!s100 j`Xjj4LR_VBzjW`SR<EY>1
+!s90 -reportprogress|300|-work|work|-vopt|F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/MEM_WB.v|
+!s108 1528044254.335000
+!s107 F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/MEM_WB.v|
+!i10b 1
+!s85 0
+vmips_tb
+Ia@zPakZXZ1lT8=9=0B<DL0
+VHfL@J;=TiSmbe>@j83EoJ0
+R3
+w1518972804
+8F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/mips_tb.v
+FF:/Program Files/modeltech_10.1a/examples/PCPU_INTR/mips_tb.v
+L0 1
+R4
+r1
+31
+R5
+!s100 nB[A@cUmNnXZT@8F8QB]63
+!s90 -reportprogress|300|-work|work|-vopt|F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/mips_tb.v|
+!s108 1528044254.487000
+!s107 F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/mips_tb.v|
+!i10b 1
+!s85 0
+vmux_2
+IW^HGabEIAgRGFCdTJ]1]Y1
+VVU8gS:zjgd@A9OU=>L1n70
+R3
+w1518757098
+8F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/mux_2.v
+FF:/Program Files/modeltech_10.1a/examples/PCPU_INTR/mux_2.v
+L0 2
+R4
+r1
+31
+R5
+!s100 QZc5Nk06I0dcPTB]n=h1S0
+!s90 -reportprogress|300|-work|work|-vopt|F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/mux_2.v|
+!s108 1528044254.640000
+!s107 F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/mux_2.v|
+!i10b 1
+!s85 0
+vmux_4
+I6LJPSi]FcP[?FC8GT@i9J3
+VO3`UPbX[Ul5o]NL3R_YQi1
+R3
+w1518757663
+8F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/mux_4.v
+FF:/Program Files/modeltech_10.1a/examples/PCPU_INTR/mux_4.v
+L0 2
+R4
+r1
+31
+R5
+!s100 ohR085:JeY263W_6:4>X>1
+!s90 -reportprogress|300|-work|work|-vopt|F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/mux_4.v|
+!i10b 1
+!s85 0
+!s108 1528044258.470000
+!s107 F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/mux_4.v|
+vPC
+I0cQGHg]T0IVKClUJ]j0P82
+V^Qo=KKb_Zj9hOLKf0[l`m1
+R3
+w1527961807
+8F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/PC.v
+FF:/Program Files/modeltech_10.1a/examples/PCPU_INTR/PC.v
+L0 1
+R4
+r1
+31
+R5
+n@p@c
+!s100 CCoW8RGn_O>E@[_6?[9Q00
+!s90 -reportprogress|300|-work|work|-vopt|F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/PC.v|
+!s108 1528044254.851000
+!s107 F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/PC.v|
+!i10b 1
+!s85 0
+vPCPU
+I0QQ6Mgldoz?<TZFO=iM8K0
+VjJ_`eJB7TdbI2<=aMF][S3
+R3
+w1527958628
+Z6 8F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/PCPU.v
+Z7 FF:/Program Files/modeltech_10.1a/examples/PCPU_INTR/PCPU.v
+L0 3
+R4
+r1
+31
+Z8 !s90 -reportprogress|300|-work|work|-vopt|F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/PCPU.v|
+R5
+n@p@c@p@u
+Z9 !s107 ./INTR_defines.v|F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/PCPU.v|
+!s100 ;mIHgYo`<cCNK@=bG4klf2
+!s108 1527958629.219000
+!i10b 1
+!s85 0
+vPCPU_INTR
+IYiEO>@WCXT0F<XN3?AN^o0
+VWEjhngej``mk526KY735l1
+R3
+w1528044256
+R6
+R7
+L0 3
+R4
+r1
+31
+R8
+R5
+n@p@c@p@u_@i@n@t@r
+R9
+!s100 nPBUgG9K0=][b0N:niTl;1
+!s108 1528044257.062000
+!i10b 1
+!s85 0
+vRAM_B
+IdJ7UE_XE2Ek5H`JM8^Q4Q1
+VTHV:33ci@kDALOcmOe?Vh0
+R3
+w1527966983
+8F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/RAM_B.v
+FF:/Program Files/modeltech_10.1a/examples/PCPU_INTR/RAM_B.v
+L0 1
+R4
+r1
+31
+R5
+n@r@a@m_@b
+!s100 1ERcaTMm[L140iSB^7i`_3
+!s90 -reportprogress|300|-work|work|-vopt|F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/RAM_B.v|
+!s108 1528044258.302000
+!s107 F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/RAM_B.v|
+!i10b 1
+!s85 0
+vRF
+IEA25k81eI8oSoIk:zc;Z32
+VCMoH`6dMFJ5EdNYNXTbl12
+R3
+w1453294114
+8F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/RegFile.v
+FF:/Program Files/modeltech_10.1a/examples/PCPU_INTR/RegFile.v
+L0 1
+R4
+r1
+31
+R5
+n@r@f
+!s100 JVNUVQlRZ<3D<>zW]^iMR3
+!s90 -reportprogress|300|-work|work|-vopt|F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/RegFile.v|
+!s108 1528044257.247000
+!s107 F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/RegFile.v|
+!i10b 1
+!s85 0
+vROM_D
+I3YA5A2l:6CEmC8PR1dl841
+VBJhRz5oMckJL0M4i>m[@g0
+R3
+w1527964168
+8F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/ROM_D.v
+FF:/Program Files/modeltech_10.1a/examples/PCPU_INTR/ROM_D.v
+L0 1
+R4
+r1
+31
+R5
+n@r@o@m_@d
+!s100 ZoLf1hj>o35J3eMW[oSEJ2
+!s90 -reportprogress|300|-work|work|-vopt|F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/ROM_D.v|
+!s108 1528044258.164000
+!s107 F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/ROM_D.v|
+!i10b 1
+!s85 0
+vsc_interrupt_tb
+IiLO>nh6NZdAR8k0b]PPgM2
+VaAbZamn27f0QHaXE5Xb6o2
+R3
+w1528044084
+8F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/sc_interrupt_tb.v
+FF:/Program Files/modeltech_10.1a/examples/PCPU_INTR/sc_interrupt_tb.v
+L0 7
+R4
+r1
+31
+R5
+!s100 ;Fzb9Z@n]^7dLFP61h_@Z1
+!s90 -reportprogress|300|-work|work|-vopt|F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/sc_interrupt_tb.v|
+!s108 1528044258.007000
+!s107 F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/sc_interrupt_tb.v|
+!i10b 1
+!s85 0
+vStatus
+ILo2B;az>Bz;l2;R@0gzlF0
+V9PYdImzb_;T5Jn^>[N0AN1
+R3
+w1527875426
+8F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/Status.v
+FF:/Program Files/modeltech_10.1a/examples/PCPU_INTR/Status.v
+L0 1
+R4
+r1
+31
+R5
+n@status
+!s100 n9iHmnn09lA=GlTiibf`P2
+!s90 -reportprogress|300|-work|work|-vopt|F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/Status.v|
+!s108 1528044257.502000
+!s107 F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/Status.v|
+!i10b 1
+!s85 0
+vTop_OExp03_IP2SOC
+I?8a<AOGmLzIfhX<FCCnNm2
+V=zXWZaS`89[[gmGiBZaB10
+R3
+w1453296070
+8F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/top.v
+FF:/Program Files/modeltech_10.1a/examples/PCPU_INTR/top.v
+L0 23
+R4
+r1
+31
+R5
+n@top_@o@exp03_@i@p2@s@o@c
+!s100 nS`8;@U_8aO6T:NZ9NU182
+!s90 -reportprogress|300|-work|work|-vopt|F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/top.v|
+!s108 1528044257.376000
+!s107 F:/Program Files/modeltech_10.1a/examples/PCPU_INTR/top.v|
+!i10b 1
+!s85 0

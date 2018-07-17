@@ -1,0 +1,106 @@
+`include "./ALU_defines.v"
+`include "./Instr_defines.v"
+module ALUCtrl (ALUOp, instr, ALUCtrl);
+  input [3:0] ALUOp;
+  input [5:0] instr;
+  output reg [4:0] ALUCtrl;
+  
+  always @(*)
+  begin 
+    case (ALUOp)
+      
+      `ALUOP_NOP:
+        ALUCtrl <= `ALUCtrl_NOP; 
+      
+      //beq
+      `ALUOP_SUB:
+        ALUCtrl <= `ALUCtrl_SUB;  
+        
+      //SL
+      `ALUOP_ADD:
+        ALUCtrl <= `ALUCtrl_ADD;
+          
+      //R-format
+      `ALUOP_R:
+      begin
+        case (instr)
+          //add,addu(tentatively)
+          6'h20:
+            ALUCtrl <= `ALUCtrl_ADD;
+          6'h21:
+            ALUCtrl <= `ALUCtrl_ADDU;
+          //sub,subu(tentatively)
+          6'h22:
+            ALUCtrl <= `ALUCtrl_SUB;
+          6'h23:
+            ALUCtrl <= `ALUCtrl_SUBU;
+          6'h2a:
+            ALUCtrl <= `ALUCtrl_SLT;
+          6'h2b:
+            ALUCtrl <= `ALUCtrl_SLTU;
+          6'h1a:
+            ALUCtrl <= `ALUCtrl_DIV;
+          6'h1b:
+            ALUCtrl <= `ALUCtrl_DIVU;
+          6'h18:
+            ALUCtrl <= `ALUCtrl_MULT;
+          6'h19:
+            ALUCtrl <= `ALUCtrl_MULTU;
+          6'h24:
+            ALUCtrl <= `ALUCtrl_AND;
+          6'h27:
+            ALUCtrl <= `ALUCtrl_NOR;
+          6'h25:
+            ALUCtrl <= `ALUCtrl_OR;
+          6'h26:
+            ALUCtrl <= `ALUCtrl_XOR;  
+          //sll, sllv
+          6'h00,
+          6'h04:  
+            ALUCtrl <= `ALUCtrl_SLL;
+          //srl, srlv
+          6'h02,
+          6'h06:
+            ALUCtrl <= `ALUCtrl_SRL;
+          //sra, srav
+          6'h03,
+          6'h07:
+            ALUCtrl <= `ALUCtrl_SRA;
+          //jalr
+          6'h09:
+            ALUCtrl <= `ALUCtrl_OR;
+          //jr
+          6'h08:
+            ALUCtrl <= `ALUCtrl_OR;
+          default:
+            ALUCtrl <= `ALUCtrl_OR;
+        endcase
+      end
+        
+      //I-format
+      `ALUOP_ADDI:
+        ALUCtrl <= `ALUCtrl_ADD;
+      `ALUOP_ADDIU://(tentatively)
+        ALUCtrl <= `ALUCtrl_ADDU;
+      `ALUOP_SLTI:
+        ALUCtrl <= `ALUCtrl_SLT;
+      `ALUOP_SLTIU:
+        ALUCtrl <= `ALUCtrl_SLTU;
+      `ALUOP_ANDI:
+        ALUCtrl <= `ALUCtrl_AND;
+      `ALUOP_ORI:
+        ALUCtrl <= `ALUCtrl_OR;
+      `ALUOP_XORI://tentatively
+        ALUCtrl <= `ALUCtrl_XOR;
+      `ALUOP_LUI:
+        ALUCtrl <= `ALUCtrl_LUI;
+        
+      //J-format
+      default:
+        ALUCtrl <= `ALUCtrl_OR;
+      
+    endcase
+  end
+  
+  
+endmodule

@@ -1,0 +1,503 @@
+`include "./ALU_defines.v"
+`include "./EXT_defines.v"
+`include "./Instr_defines.v"
+`include "./Brch_defines.v"
+
+module Ctrl (op, rst, clk,
+             Instr_16, Instr_5_0, 
+             PCWriteCond, MemRead, MemWrite, RegData, Jump, Link, 
+             ALUOp, EXTOp, ALUSrcA, ALUSrcB, RegWrite, RegDst);
+  
+  input [5:0] op;
+  input rst;
+  input clk;
+  input Instr_16;
+  input [5:0] Instr_5_0;
+  output reg [3:0] PCWriteCond;
+  output reg MemRead;
+  output reg MemWrite;
+  output reg RegData;
+  output reg [1:0] Jump;
+  output reg [1:0] Link;
+  output reg [3:0] ALUOp;
+  output reg [1:0] EXTOp;
+  output reg ALUSrcA;
+  output reg ALUSrcB;
+  output reg RegWrite;
+  output reg RegDst;
+  
+  always @(*)
+  begin
+    if (rst)
+      begin
+        PCWriteCond <= 4'b0000;
+        MemRead <= 0;
+        MemWrite <= 0;
+        RegData <= 0;
+        Jump <= 2'b00;
+        Link <= 2'b00;
+        ALUOp <= 4'b0000;
+        EXTOp <= 2'b00;
+        ALUSrcA <= 0;
+        ALUSrcB <= 0;
+        RegWrite <= 0;
+        RegDst <= 0;
+      end
+    else
+      case (op)
+        
+        /*==================== R-Format ======================*/
+        
+        `OP_R:
+        begin
+          if (Instr_5_0==6'b001000) //jr
+            begin
+              Jump <= 2'b11;
+              Link <= 2'b00;
+              ALUOp <= `ALUOP_NOP;
+              RegWrite <= 0;
+              RegDst <= 0;//RegDst is arbitrary
+            end
+          else if (Instr_5_0==6'b001001) //jalr
+            begin
+              Jump <= 2'b11;
+              Link <= 2'b10;
+              ALUOp <= `ALUOP_NOP;
+              RegWrite <= 0;
+              RegDst <= 0;//RegDst is arbitrary
+            end
+          else
+            begin
+              Jump <= 2'b00;
+              Link <= 2'b00;
+              ALUOp <= `ALUOP_R;
+              RegWrite <= 1;
+              RegDst <= 1;
+            end
+            
+          if (Instr_5_0==6'h00 || Instr_5_0==6'h02 || Instr_5_0==6'h03)
+            ALUSrcA <= 1; //shift
+          else
+            ALUSrcA <= 0;
+            
+          PCWriteCond <= 4'b0000;
+          MemRead <= 0;
+          MemWrite <= 0;
+          RegData <= 0;
+          EXTOp <= 2'b00;//EXTOp is arbitrary
+          ALUSrcB <= 0;
+        end        
+        
+        /*===================== Branch ======================*/
+        
+        `OP_BEQ:
+        begin
+          PCWriteCond <= `COND_BEQ;
+          MemRead <= 0;
+          MemWrite <= 0;
+          RegData <= 0;//RegData is arbitrary
+          Jump <= 2'b00;
+          Link <= 2'b00;
+          ALUOp <= 4'b0000;//ALUOp is arbitrary
+          EXTOp <= `EXTOP_ARITH;
+          ALUSrcA <= 0;//ALUSrcA is arbitrary
+          ALUSrcB <= 0;//ALUSrcB is arbitrary
+          RegWrite <= 0;
+          RegDst <= 0;//RegDst is arbitrary
+        end
+        
+        `OP_BGEZ:
+        begin
+          PCWriteCond <= (Instr_16==1)?`COND_BGEZ:`COND_BLTZ;
+          MemRead <= 0;
+          MemWrite <= 0;
+          RegData <= 0;//RegData is arbitrary
+          Jump <= 2'b00;
+          Link <= 2'b00;
+          ALUOp <= 4'b0000;//ALUOp is arbitrary
+          EXTOp <= `EXTOP_ARITH;
+          ALUSrcA <= 0;//ALUSrcA is arbitrary
+          ALUSrcB <= 0;//ALUSrcB is arbitrary
+          RegWrite <= 0;
+          RegDst <= 0;//RegDst is arbitrary
+        end
+        
+        `OP_BGTZ:
+        begin
+          PCWriteCond <= `COND_BGTZ;
+          MemRead <= 0;
+          MemWrite <= 0;
+          RegData <= 0;//RegData is arbitrary
+          Jump <= 2'b00;
+          Link <= 2'b00;
+          ALUOp <= 4'b0000;//ALUOp is arbitrary
+          EXTOp <= `EXTOP_ARITH;
+          ALUSrcA <= 0;//ALUSrcA is arbitrary
+          ALUSrcB <= 0;//ALUSrcB is arbitrary
+          RegWrite <= 0;
+          RegDst <= 0;//RegDst is arbitrary
+        end
+        
+        `OP_BLEZ:
+        begin
+          PCWriteCond <= `COND_BLEZ;
+          MemRead <= 0;
+          MemWrite <= 0;
+          RegData <= 0;//RegData is arbitrary
+          Jump <= 2'b00;
+          Link <= 2'b00;
+          ALUOp <= 4'b0000;//ALUOp is arbitrary
+          EXTOp <= `EXTOP_ARITH;
+          ALUSrcA <= 0;//ALUSrcA is arbitrary
+          ALUSrcB <= 0;//ALUSrcB is arbitrary
+          RegWrite <= 0;
+          RegDst <= 0;//RegDst is arbitrary
+        end
+        
+        `OP_BLTZ:
+        begin
+          PCWriteCond <= (Instr_16==1)?`COND_BGEZ:`COND_BLTZ;
+          MemRead <= 0;
+          MemWrite <= 0;
+          RegData <= 0;//RegData is arbitrary
+          Jump <= 2'b00;
+          Link <= 2'b00;
+          ALUOp <= 4'b0000;//ALUOp is arbitrary
+          EXTOp <= `EXTOP_ARITH;
+          ALUSrcA <= 0;//ALUSrcA is arbitrary
+          ALUSrcB <= 0;//ALUSrcB is arbitrary
+          RegWrite <= 0;
+          RegDst <= 0;//RegDst is arbitrary
+        end
+        
+        `OP_BNQ:
+        begin
+          PCWriteCond <= `COND_BNQ;
+          MemRead <= 0;
+          MemWrite <= 0;
+          RegData <= 0;//RegData is arbitrary
+          Jump <= 2'b00;
+          Link <= 2'b00;
+          ALUOp <= 4'b0000;//ALUOp is arbitrary
+          EXTOp <= `EXTOP_ARITH;
+          ALUSrcA <= 0;//ALUSrcA is arbitrary
+          ALUSrcB <= 0;//ALUSrcB is arbitrary
+          RegWrite <= 0;
+          RegDst <= 0;//RegDst is arbitrary
+        end
+
+        /*===================== I-Format =====================*/
+
+        `OP_ADDI:
+        begin
+          PCWriteCond <= 4'b0000;
+          MemRead <= 0;
+          MemWrite <= 0;
+          RegData <= 0;
+          Jump <= 2'b00;
+          Link <= 2'b00;
+          ALUOp <= `ALUOP_ADDI;
+          EXTOp <= `EXTOP_ARITH;
+          ALUSrcA <= 0;
+          ALUSrcB <= 1;
+          RegWrite <= 1;
+          RegDst <= 0;
+        end
+        
+        `OP_ADDIU:
+        begin
+          PCWriteCond <= 4'b0000;
+          MemRead <= 0;
+          MemWrite <= 0;
+          RegData <= 0;
+          Jump <= 2'b00;
+          Link <= 2'b00;
+          ALUOp <= `ALUOP_ADDIU;
+          EXTOp <= `EXTOP_ARITH;
+          ALUSrcA <= 0;
+          ALUSrcB <= 1;
+          RegWrite <= 1;
+          RegDst <= 0;
+        end
+        
+        `OP_SLTI:
+        begin
+          PCWriteCond <= 4'b0000;
+          MemRead <= 0;
+          MemWrite <= 0;
+          RegData <= 0;
+          Jump <= 2'b00;
+          Link <= 2'b00;
+          ALUOp <= `ALUOP_SLTI;
+          EXTOp <= `EXTOP_ARITH;
+          ALUSrcA <= 0;
+          ALUSrcB <= 1;
+          RegWrite <= 1;
+          RegDst <= 0;
+        end
+        
+        `OP_SLTIU:
+        begin
+          PCWriteCond <= 4'b0000;
+          MemRead <= 0;
+          MemWrite <= 0;
+          RegData <= 0;
+          Jump <= 2'b00;
+          Link <= 2'b00;
+          ALUOp <= `ALUOP_SLTIU;
+          EXTOp <= `EXTOP_ARITH;
+          ALUSrcA <= 0;
+          ALUSrcB <= 1;
+          RegWrite <= 1;
+          RegDst <= 0;
+        end
+        
+        `OP_ANDI:
+        begin
+          PCWriteCond <= 4'b0000;
+          MemRead <= 0;
+          MemWrite <= 0;
+          RegData <= 0;
+          Jump <= 2'b00;
+          Link <= 2'b00;
+          ALUOp <= `ALUOP_ANDI;
+          EXTOp <= `EXTOP_LOGIC;
+          ALUSrcA <= 0;
+          ALUSrcB <= 1;
+          RegWrite <= 1;
+          RegDst <= 0;
+        end
+        
+        `OP_ORI:
+        begin
+          PCWriteCond <= 4'b0000;
+          MemRead <= 0;
+          MemWrite <= 0;
+          RegData <= 0;
+          Jump <= 2'b00;
+          Link <= 2'b00;
+          ALUOp <= `ALUOP_ORI;
+          EXTOp <= `EXTOP_LOGIC;
+          ALUSrcA <= 0;
+          ALUSrcB <= 1;
+          RegWrite <= 1;
+          RegDst <= 0;
+        end
+        
+        `OP_XORI:
+        begin
+          PCWriteCond <= 4'b0000;
+          MemRead <= 0;
+          MemWrite <= 0;
+          RegData <= 0;
+          Jump <= 2'b00;
+          Link <= 2'b00;
+          ALUOp <= `ALUOP_XORI;
+          EXTOp <= `EXTOP_LOGIC;
+          ALUSrcA <= 0;
+          ALUSrcB <= 1;
+          RegWrite <= 1;
+          RegDst <= 0;
+        end
+        
+        `OP_LUI:
+        begin
+          PCWriteCond <= 4'b0000;
+          MemRead <= 0;
+          MemWrite <= 0;
+          RegData <= 0;
+          Jump <= 2'b00;
+          Link <= 2'b00;
+          ALUOp <= `ALUOP_LUI;
+          EXTOp <= `EXTOP_LOGIC;
+          ALUSrcA <= 0;
+          ALUSrcB <= 1;
+          RegWrite <= 1;
+          RegDst <= 0;
+        end
+
+        /*======================== S&L ==========================*/
+
+        `OP_LB:
+        begin
+          PCWriteCond <= 4'b0000;
+          MemRead <= 1;
+          MemWrite <= 0;
+          RegData <= 1;
+          Jump <= 2'b00;
+          Link <= 2'b00;
+          ALUOp <= `ALUOP_ADD;
+          EXTOp <= `EXTOP_ARITH;
+          ALUSrcA <= 0;
+          ALUSrcB <= 1;
+          RegWrite <= 1;
+          RegDst <= 0;
+        end
+        
+        `OP_LBU:
+        begin
+          PCWriteCond <= 4'b0000;
+          MemRead <= 1;
+          MemWrite <= 0;
+          RegData <= 1;
+          Jump <= 2'b00;
+          Link <= 2'b00;
+          ALUOp <= `ALUOP_ADD;
+          EXTOp <= `EXTOP_ARITH;
+          ALUSrcA <= 0;
+          ALUSrcB <= 1;
+          RegWrite <= 1;
+          RegDst <= 0;
+        end
+        
+        `OP_LH:
+        begin
+          PCWriteCond <= 4'b0000;
+          MemRead <= 1;
+          MemWrite <= 0;
+          RegData <= 1;
+          Jump <= 2'b00;
+          Link <= 2'b00;
+          ALUOp <= `ALUOP_ADD;
+          EXTOp <= `EXTOP_ARITH;
+          ALUSrcA <= 0;
+          ALUSrcB <= 1;
+          RegWrite <= 1;
+          RegDst <= 0;
+        end
+        
+        `OP_LHU:
+        begin
+          PCWriteCond <= 4'b0000;
+          MemRead <= 1;
+          MemWrite <= 0;
+          RegData <= 1;
+          Jump <= 2'b00;
+          Link <= 2'b00;
+          ALUOp <= `ALUOP_ADD;
+          EXTOp <= `EXTOP_ARITH;
+          ALUSrcA <= 0;
+          ALUSrcB <= 1;
+          RegWrite <= 1;
+          RegDst <= 0;
+        end
+        
+        `OP_LW:
+        begin
+          PCWriteCond <= 4'b0000;
+          MemRead <= 1;
+          MemWrite <= 0;
+          RegData <= 1;
+          Jump <= 2'b00;
+          Link <= 2'b00;
+          ALUOp <= `ALUOP_ADD;
+          EXTOp <= `EXTOP_ARITH;
+          ALUSrcA <= 0;
+          ALUSrcB <= 1;
+          RegWrite <= 1;
+          RegDst <= 0;
+        end
+        
+        `OP_SB:
+        begin
+          PCWriteCond <= 4'b0000;
+          MemRead <= 0;
+          MemWrite <= 1;
+          RegData <= 0;//RegData is arbitrary
+          Jump <= 2'b00;
+          Link <= 2'b00;
+          ALUOp <= `ALUOP_ADD;
+          EXTOp <= `EXTOP_ARITH;
+          ALUSrcA <= 0;
+          ALUSrcB <= 1;
+          RegWrite <= 0;
+          RegDst <= 0;//RegDst is arbitrary
+        end
+        
+        `OP_SH:
+        begin
+          PCWriteCond <= 4'b0000;
+          MemRead <= 0;
+          MemWrite <= 1;
+          RegData <= 0;//RegData is arbitrary
+          Jump <= 2'b00;
+          Link <= 2'b00;
+          ALUOp <= `ALUOP_ADD;
+          EXTOp <= `EXTOP_ARITH;
+          ALUSrcA <= 0;
+          ALUSrcB <= 1;
+          RegWrite <= 0;
+          RegDst <= 0;//RegDst is arbitrary
+        end
+        
+        `OP_SW:
+        begin
+          PCWriteCond <= 4'b0000;
+          MemRead <= 0;
+          MemWrite <= 1;
+          RegData <= 0;//RegData is arbitrary
+          Jump <= 2'b00;
+          Link <= 2'b00;
+          ALUOp <= `ALUOP_ADD;
+          EXTOp <= `EXTOP_ARITH;
+          ALUSrcA <= 0;
+          ALUSrcB <= 1;
+          RegWrite <= 0;
+          RegDst <= 0;//RegDst is arbitrary
+        end
+
+        /*======================= Jump =========================*/
+
+        `OP_J:
+        begin
+          PCWriteCond <= 4'b0000;
+          MemRead <= 0;
+          MemWrite <= 0;
+          RegData <= 0;//RegData is arbitrary
+          Jump <= 2'b01;
+          Link <= 2'b00;
+          ALUOp <= `ALUOP_NOP;
+          EXTOp <= 2'b00;//EXTOp is arbitrary
+          ALUSrcA <= 0;//ALUSrcA is arbitrary
+          ALUSrcB <= 0;//ALUSrcB is arbitrary
+          RegWrite <= 0;
+          RegDst <= 0;//RegDst is arbitrary
+        end
+        
+        `OP_JAL:
+        begin
+          PCWriteCond <= 4'b0000;
+          MemRead <= 0;
+          MemWrite <= 0;
+          RegData <= 0;//RegData is arbitrary
+          Jump <= 2'b01;
+          Link <= 2'b01;
+          ALUOp <= `ALUOP_NOP;
+          EXTOp <= 2'b00;//EXTOp is arbitrary
+          ALUSrcA <= 0;//ALUSrcA is arbitrary
+          ALUSrcB <= 0;//ALUSrcB is arbitrary
+          RegWrite <= 0;
+          RegDst <= 0;//RegDst is arbitrary
+        end
+      
+        default:
+        begin
+          PCWriteCond <= 4'b0000;
+          MemRead <= 0;
+          MemWrite <= 0;
+          RegData <= 0;
+          Jump <= 2'b00;
+          Link <= 2'b00;
+          ALUOp <= 4'b0000;
+          EXTOp <= 2'b00;
+          ALUSrcA <= 0;
+          ALUSrcB <= 0;
+          RegWrite <= 0;
+          RegDst <= 0;
+        end
+      
+      endcase
+    
+  end  
+
+endmodule

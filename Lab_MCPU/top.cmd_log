@@ -1,0 +1,5 @@
+xst -intstyle ise -ifn "D:/GODP/Lab_MCPU/top.xst" -ofn "D:/GODP/Lab_MCPU/top.syr" 
+xst -intstyle ise -ifn "D:/GODP/Lab_MCPU/top.xst" -ofn "D:/GODP/Lab_MCPU/top.syr" 
+xst -intstyle ise -ifn "D:/GODP/Lab_MCPU/top.xst" -ofn "D:/GODP/Lab_MCPU/top.syr" 
+xst -intstyle ise -ifn "D:/GODP/Lab_MCPU/top.xst" -ofn "D:/GODP/Lab_MCPU/top.syr" 
+xst -intstyle ise -ifn "D:/GODP/Lab_MCPU/top.xst" -ofn "D:/GODP/Lab_MCPU/top.syr" 

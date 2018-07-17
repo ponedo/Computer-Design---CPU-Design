@@ -1,0 +1,38 @@
+Sun Jun 03 20:49:32 ?????? 2018
+Trace back: Bad window index: .main_pane.source
+    while executing
+"error "Bad window index: $window""
+    (object "::.main_pane.cs.432" method "::mtiwidgets::Tabbedwindow::tabindex" body line 15)
+    invoked from within
+"tabindex $window"
+    (object "::.main_pane.cs.432" method "::mtiwidgets::Tabbedwindow::tabcget" body line 3)
+    invoked from within
+"$pp tabcget $window $option"
+    (object "::.main_pane" method "::mtiwidgets::Panemanager::tabcget" body line 8)
+    invoked from within
+"$itk_option(-panemanager) tabcget $itk_component(hull) -mark"
+    (while configuring option "-mark" for widget "::.main_pane.source")
+    (object "::.main_pane.source" method "::itk::Archetype::configure" )
+    invoked from within
+"$windowobj configure -mark """
+    (procedure "SourceTitle" line 11)
+    invoked from within
+"SourceTitle .main_pane.source"
+    ("eval" body line 1)
+    invoked from within
+"eval $itk_option(-titlecommand) $frame_name"
+    (object "::.main_pane.source" method "::mtiwidgets::WindowObj::Title" body line 9)
+    invoked from within
+"Title"
+    (object "::.main_pane.source" method "::mtiwidgets::WindowObj::UpdateText" body line 9)
+    invoked from within
+"$windowobj UpdateText"
+    (object "::.main_pane.source.interior.cs.body.editor" method "::vsimwidgets::Srcedit::UpdateSourceState" body line 38)
+    invoked from within
+"::.main_pane.source.interior.cs.body.editor UpdateSourceState"
+    (in namespace inscope "::vsimwidgets::Srcedit" script line 1)
+    invoked from within
+"namespace inscope ::vsimwidgets::Srcedit {::.main_pane.source.interior.cs.body.editor UpdateSourceState}"
+    (command bound to event)
+  <2: ::tkerror {Bad window index: .main_pane.source}
+  <1: ::bgerror {Bad window index: .main_pane.source}

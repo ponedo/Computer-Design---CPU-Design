@@ -1,0 +1,626 @@
+`include "./ALU_defines.v"
+`include "./EXT_defines.v"
+`include "./Instr_defines.v"
+`include "./Brch_defines.v"
+
+module Ctrl (op, rst, clk,
+             PCWriteCond, PCWrite, MemRead, MemWrite, RegData, IRWrite,
+             PCSource, ALUOp, EXTOp, ALUSrcA, ALUSrcB, RegWrite, RegDst, IorD, 
+             state);
+  
+  input [5:0] op;
+  input rst;
+  input clk;
+  output reg [3:0] PCWriteCond;
+  output reg PCWrite;
+  output reg MemRead;
+  output reg MemWrite;
+  output reg [1:0] RegData;
+  output reg IRWrite;
+  output reg [1:0] PCSource;
+  output reg [3:0] ALUOp;
+  output reg [1:0] EXTOp;
+  output reg [1:0] ALUSrcA;
+  output reg [1:0] ALUSrcB;
+  output reg RegWrite;
+  output reg [1:0] RegDst;
+  output reg [4:0] state;
+  output reg IorD;
+  
+  reg [4:0] nextstate;
+  
+  always @(posedge clk or posedge rst)
+  begin
+    if (rst)
+	   state <= 5'd0;
+	 else
+	   state <= nextstate;
+  end
+		
+  always @ (*)
+  begin
+    case (state)
+      
+      /*IF*/
+      5'd0:
+      begin
+        PCWriteCond <= 4'b0000;
+        PCWrite <= 1;
+        MemRead <= 1;
+        MemWrite <= 0;
+        RegData <= 2'b00;//RegData is arbitrary
+        IRWrite <= 1;
+        PCSource <= 2'b00;
+        ALUOp <= `ALUOP_ADD;
+        EXTOp <= 2'b00;//EXTOp is arbitrary
+        ALUSrcA <= 2'b00;
+        ALUSrcB <= 2'b01;
+        RegWrite <= 0;
+        RegDst <= 2'b00;//RegDst is arbitrary
+		  IorD <= 0;
+        nextstate <= 5'd1;
+      end
+      
+      /*ID & RF*/
+      5'd1:
+      begin
+        PCWriteCond <= 4'b0000;
+        PCWrite <= 0;
+        MemRead <= 0;
+        MemWrite <= 0;
+        RegData <= 2'b00;//RegData is arbitrary
+        IRWrite <= 0;
+        PCSource <= 2'b00;//PCSource is arbitrary
+        ALUOp <= `ALUOP_ADD;
+        EXTOp <= 2'b00;//EXTOp is arbitrary
+        ALUSrcA <= 2'b00;
+        ALUSrcB <= 2'b11;
+        RegWrite <= 0;
+        RegDst <= 2'b00;//RegDst is arbitrary
+		  IorD <= 0;//IorD is arbitrary
+        case (op)
+          /*SL*/
+          `OP_LB,
+          `OP_LBU,
+          `OP_LH,
+          `OP_LHU,
+          `OP_LW,
+          `OP_SB,
+          `OP_SH,
+          `OP_SW:
+            nextstate <= 5'd2;
+          /*R-type & jar jalr*/
+          `OP_R:
+            nextstate <= 5'd6;
+          /*Branch*/
+          `OP_BEQ:
+            nextstate <= 5'd8;
+          `OP_BGEZ:
+            nextstate <= 5'd9;
+          `OP_BGTZ:
+            nextstate <= 5'd10;
+          `OP_BLEZ:
+            nextstate <= 5'd11;
+          `OP_BLTZ:
+            nextstate <= 5'd12;
+          `OP_BNQ:
+            nextstate <= 5'd13;
+          /*Jump*/
+          `OP_J:
+            nextstate <= 5'd14;
+          `OP_JAL:
+            nextstate <= 5'd15;      
+          /*Arithmetic with immediate number*/
+          `OP_ADDI:
+            nextstate <= 5'd16;
+          `OP_ADDIU:
+            nextstate <= 5'd17;
+          `OP_SLTI:
+            nextstate <= 5'd18;
+          `OP_SLTIU:
+            nextstate <= 5'd19;    
+          `OP_ANDI:
+            nextstate <= 5'd20;
+          `OP_ORI:
+            nextstate <= 5'd21;
+          `OP_XORI:
+            nextstate <= 5'd22;
+          `OP_LUI:
+            nextstate <= 5'd23;
+          default:
+            nextstate <= 5'd0;
+        endcase
+      end
+      
+      /*load and store*/
+      5'd2:
+      begin
+        PCWriteCond <= 4'b0000;
+        PCWrite <= 0;
+        MemRead <= 0;
+        MemWrite <= 0;
+        RegData <= 2'b00;//RegData is arbitrary
+        IRWrite <= 0;
+        PCSource <= 2'b00;//PCSource is arbitrary
+        ALUOp <= `ALUOP_ADD;
+        EXTOp <= 2'b00;//EXTOp is arbitrary
+        ALUSrcA <= 2'b01;
+        ALUSrcB <= 2'b10;
+        RegWrite <= 0;
+        RegDst <= 2'b00;//RegDst is arbitrary
+		  IorD <= 0;//IorD is arbitrary
+        case (op)
+          //load
+          6'h20, 6'h24, 6'h21, 6'h25, 6'h23:
+            nextstate <= 5'd3;
+          //save
+          6'h28, 6'h29, 6'h2b:
+            nextstate <= 5'd5;
+          default:
+            nextstate <= 5'd0;
+        endcase
+      end
+      
+      /*Memory access of load*/
+      5'd3:
+      begin
+        PCWriteCond <= 4'b0000;
+        PCWrite <= 0;
+        MemRead <= 1;
+        MemWrite <= 0;
+        RegData <= 2'b00;//RegData is arbitrary
+        IRWrite <= 0;
+        PCSource <= 2'b00;//PCSource is arbitrary
+        ALUOp <= 4'b0000;//ALUOp is arbitrary
+        EXTOp <= 2'b00;//EXTOp is arbitrary
+        ALUSrcA <= 2'b00;//ALUSrcA is arbitrary
+        ALUSrcB <= 2'b00;//ALUSrcB is arbitrary
+        RegWrite <= 0;
+        RegDst <= 2'b00;//RegDst is arbitrary
+		  IorD <= 1;
+        nextstate <= 5'd4;
+      end
+      
+      /*Write-back of load*/
+      5'd4:
+      begin
+        PCWriteCond <= 4'b0000;
+        PCWrite <= 0;
+        MemRead <= 1;
+        MemWrite <= 0;
+        RegData <= 2'b01;
+        IRWrite <= 0;
+        PCSource <= 2'b00;//PCSource is arbitrary
+        ALUOp <= 4'b0000;//ALUOp is arbitrary
+        EXTOp <= 2'b00;//EXTOp is arbitrary
+        ALUSrcA <= 2'b00;//ALUSrcA is arbitrary
+        ALUSrcB <= 2'b00;//ALUSrcB is arbitrary
+        RegWrite <= 1;
+        RegDst <= 2'b00;
+		  IorD <= 0;//IorD is arbitrary
+        nextstate <= 5'd0;
+      end
+      
+      /*Memory access of store*/
+      5'd5:
+      begin
+        PCWriteCond <= 4'b0000;
+        PCWrite <= 0;
+        MemRead <= 0;
+        MemWrite <= 1;
+        RegData <= 2'b00;//RegData is arbitrary
+        IRWrite <= 0;
+        PCSource <= 2'b00;//PCSource is arbitrary
+        ALUOp <= 4'b0000;//ALUOp is arbitrary
+        EXTOp <= 2'b00;//EXTOp is arbitrary
+        ALUSrcA <= 2'b00;//ALUSrcA is arbitrary
+        ALUSrcB <= 2'b00;//ALUSrcB is arbitrary
+        RegWrite <= 0;
+        RegDst <= 2'b00;//RegDst is arbitrary
+		  IorD <= 1;
+        nextstate <= 5'd0;
+      end
+      
+      /*Execution of R-Type*/
+      5'd6:
+      begin
+        PCWriteCond <= 4'b0000;
+        PCWrite <= 0;
+        MemRead <= 0;
+        MemWrite <= 0;
+        RegData <= 2'b00;//RegData is arbitrary
+        IRWrite <= 0;
+        PCSource <= 2'b00;//PCSource is arbitrary
+        ALUOp <= `ALUOP_R;
+        EXTOp <= 2'b00;//EXTOp is arbitrary
+        ALUSrcA <= 2'b01;
+        ALUSrcB <= 2'b00;
+        RegWrite <= 0;
+        RegDst <= 2'b00;//RegDst is arbitrary
+		  IorD <= 0;//IorD is arbitrary
+        nextstate <= 5'd7;
+      end
+      
+      /*R-Type & jar jalr completion*/
+      5'd7:
+      begin
+        PCWriteCond <= 4'b0000;
+        PCWrite <= 0;
+        MemRead <= 0;
+        MemWrite <= 0;
+        RegData <= 2'b00;
+        IRWrite <= 0;
+        PCSource <= 2'b01;
+        ALUOp <= `ALUOP_ORI; //any ALUOp but ALUOP_R to clear ALUCtrl output
+        EXTOp <= 2'b00;//EXTOp is arbitrary
+        ALUSrcA <= 2'b00;//ALUSrcA is arbitrary
+        ALUSrcB <= 2'b00;//ALUSrcB is arbitrary
+        RegWrite <= 1;
+        RegDst <= 2'b01;
+		  IorD <= 0;//IorD is arbitrary
+        nextstate <= 5'd0;
+      end
+      
+      /*beq*/
+      5'd8:
+      begin
+        PCWriteCond <= `COND_BEQ;
+        PCWrite <= 0;
+        MemRead <= 0;
+        MemWrite <= 0;
+        RegData <= 2'b00;//RegData is arbitrary
+        IRWrite <= 0;
+        PCSource <= 2'b01;
+        ALUOp <= `ALUOP_SUB;
+        EXTOp <= 2'b00;//EXTOp is arbitrary
+        ALUSrcA <= 2'b01;
+        ALUSrcB <= 2'b00;
+        RegWrite <= 0;
+        RegDst <= 2'b00;//RegDst is arbitrary
+		  IorD <= 0;//IorD is arbitrary
+        nextstate <= 5'd0;
+     end  
+      
+     /*bgez*/
+      5'd9:
+      begin
+        PCWriteCond <= `COND_1;
+        PCWrite <= 0;
+        MemRead <= 0;
+        MemWrite <= 0;
+        RegData <= 2'b00;//RegData is arbitrary
+        IRWrite <= 0;
+        PCSource <= 2'b01;
+        ALUOp <= `ALUOP_ORI;
+        EXTOp <= 2'b00;//EXTOp is arbitrary
+        ALUSrcA <= 2'b01;
+        ALUSrcB <= 2'b01;
+        RegWrite <= 0;
+        RegDst <= 2'b00;//RegDst is arbitrary
+		  IorD <= 0;//IorD is arbitrary
+        nextstate <= 5'd0;
+      end
+      
+      /*bgtz*/
+      5'd10:
+      begin
+        PCWriteCond <= `COND_BGTZ;
+        PCWrite <= 0;
+        MemRead <= 0;
+        MemWrite <= 0;
+        RegData <= 2'b00;//RegData is arbitrary
+        IRWrite <= 0;
+        PCSource <= 2'b01;
+        ALUOp <= `ALUOP_ORI;
+        EXTOp <= 2'b00;//EXTOp is arbitrary
+        ALUSrcA <= 2'b01;
+        ALUSrcB <= 2'b01;
+        RegWrite <= 0;
+        RegDst <= 2'b00;//RegDst is arbitrary
+		  IorD <= 0;//IorD is arbitrary
+        nextstate <= 5'd0;
+      end
+      
+      /*blez*/
+      5'd11:
+      begin
+        PCWriteCond <= `COND_BLEZ;
+        PCWrite <= 0;
+        MemRead <= 0;
+        MemWrite <= 0;
+        RegData <= 2'b00;//RegData is arbitrary
+        IRWrite <= 0;
+        PCSource <= 2'b01;
+        ALUOp <= `ALUOP_ORI;
+        EXTOp <= 2'b00;//EXTOp is arbitrary
+        ALUSrcA <= 2'b01;
+        ALUSrcB <= 2'b01;
+        RegWrite <= 0;
+        RegDst <= 2'b00;//RegDst is arbitrary
+		  IorD <= 0;//IorD is arbitrary
+        nextstate <= 5'd0;
+      end
+      
+      /*bltz*/
+      5'd12:
+      begin
+        PCWriteCond <= `COND_1;
+        PCWrite <= 0;
+        MemRead <= 0;
+        MemWrite <= 0;
+        RegData <= 2'b00;//RegData is arbitrary
+        IRWrite <= 0;
+        PCSource <= 2'b01;
+        ALUOp <= `ALUOP_ORI;
+        EXTOp <= 2'b00;//EXTOp is arbitrary
+        ALUSrcA <= 2'b01;
+        ALUSrcB <= 2'b01;
+        RegWrite <= 0;
+        RegDst <= 2'b00;//RegDst is arbitrary
+		  IorD <= 0;//IorD is arbitrary
+        nextstate <= 5'd0;
+      end
+      
+      /*bnq*/
+      5'd13:
+      begin
+        PCWriteCond <= `COND_BNQ;
+        PCWrite <= 0;
+        MemRead <= 0;
+        MemWrite <= 0;
+        RegData <= 2'b00;//RegData is arbitrary
+        IRWrite <= 0;
+        PCSource <= 2'b01;
+        ALUOp <= `ALUOP_SUB;
+        EXTOp <= 2'b00;//EXTOp is arbitrary
+        ALUSrcA <= 2'b01;
+        ALUSrcB <= 2'b01;
+        RegWrite <= 0;
+        RegDst <= 2'b00;//RegDst is arbitrary
+		  IorD <= 0;//IorD is arbitrary
+        nextstate <= 5'd0;
+      end
+      
+      /*j*/
+      5'd14:
+      begin
+        PCWriteCond <= 4'b0000;
+        PCWrite <= 1;
+        MemRead <= 0;
+        MemWrite <= 0;
+        RegData <= 2'b00;//RegData is arbitrary
+        IRWrite <= 0;
+        PCSource <= 2'b10;
+        ALUOp <= 4'b0000;//ALUOp is arbitrary
+        EXTOp <= 2'b00;//EXTOp is arbitrary
+        ALUSrcA <= 2'b00;//ALUSrcA is arbitrary
+        ALUSrcB <= 2'b00;//ALUSrcB is arbitrary
+        RegWrite <= 0;
+        RegDst <= 2'b00;//RegDst is arbitrary
+		  IorD <= 0;//IorD is arbitrary
+        nextstate <= 5'd0;
+      end
+      
+      /*jal*/
+      5'd15:
+      begin
+        PCWriteCond <= 4'b0000;
+        PCWrite <= 1;
+        MemRead <= 0;
+        MemWrite <= 0;
+        RegData <= 2'b11;
+        IRWrite <= 0;
+        PCSource <= 2'b10;
+        ALUOp <= 4'b0000;//ALUOp is arbitrary
+        EXTOp <= 2'b00;//EXTOp is arbitrary
+        ALUSrcA <= 2'b00;//ALUSrcA is arbitrary
+        ALUSrcB <= 2'b00;//ALUSrcB is arbitrary
+        RegWrite <= 1;
+        RegDst <= 2'b11;
+		  IorD <= 0;//IorD is arbitrary
+        nextstate <= 5'd0;
+      end
+      
+      /*ADDI*/
+      5'd16:
+      begin
+        PCWriteCond <= 4'b0000;
+        PCWrite <= 0;
+        MemRead <= 0;
+        MemWrite <= 0;
+        RegData <= 2'b00;//RegData is arbitrary
+        IRWrite <= 0;
+        PCSource <= 2'b00;//PCSource is arbitrary
+        ALUOp <= `ALUOP_ADDI;
+        EXTOp <= `EXTOP_ARITH;
+        ALUSrcA <= 2'b01;
+        ALUSrcB <= 2'b10;
+        RegWrite <= 0;
+        RegDst <= 2'b00;//RegDst is arbitraty
+		  IorD <= 0;//IorD is arbitrary
+        nextstate <= 5'd24;
+      end
+      
+      /*ADDIU*/
+      5'd17:
+      begin
+        PCWriteCond <= 4'b0000;
+        PCWrite <= 0;
+        MemRead <= 0;
+        MemWrite <= 0;
+        RegData <= 2'b00;//RegData is arbitrary
+        IRWrite <= 0;
+        PCSource <= 2'b00;//PCSource is arbitrary
+        ALUOp <= `ALUOP_ADDIU;
+        EXTOp <= `EXTOP_ARITH;
+        ALUSrcA <= 2'b01;
+        ALUSrcB <= 2'b10;
+        RegWrite <= 0;
+        RegDst <= 2'b00;//RegDst is arbitraty
+		  IorD <= 0;//IorD is arbitrary
+        nextstate <= 5'd24;
+      end
+      
+      /*SLTI*/
+      5'd18:
+      begin
+        PCWriteCond <= 4'b0000;
+        PCWrite <= 0;
+        MemRead <= 0;
+        MemWrite <= 0;
+        RegData <= 2'b00;//RegData is arbitrary
+        IRWrite <= 0;
+        PCSource <= 2'b00;//PCSource is arbitrary
+        ALUOp <= `ALUOP_SLTI;
+        EXTOp <= `EXTOP_ARITH;
+        ALUSrcA <= 2'b01;
+        ALUSrcB <= 2'b10;
+        RegWrite <= 0;
+        RegDst <= 2'b00;//RegDst is arbitraty
+		  IorD <= 0;//IorD is arbitrary
+        nextstate <= 5'd24;
+      end
+      
+      /*SLTIU*/
+      5'd19:
+      begin
+        PCWriteCond <= 4'b0000;
+        PCWrite <= 0;
+        MemRead <= 0;
+        MemWrite <= 0;
+        RegData <= 2'b00;//RegData is arbitrary
+        IRWrite <= 0;
+        PCSource <= 2'b00;//PCSource is arbitrary
+        ALUOp <= `ALUOP_SLTIU;
+        EXTOp <= `EXTOP_ARITH;
+        ALUSrcA <= 2'b01;
+        ALUSrcB <= 2'b10;
+        RegWrite <= 0;
+        RegDst <= 2'b00;//RegDst is arbitraty
+		  IorD <= 0;//IorD is arbitrary
+        nextstate <= 5'd24;
+      end
+      
+      /*ANDI*/
+      5'd20:
+      begin
+        PCWriteCond <= 4'b0000;
+        PCWrite <= 0;
+        MemRead <= 0;
+        MemWrite <= 0;
+        RegData <= 2'b00;//RegData is arbitrary
+        IRWrite <= 0;
+        PCSource <= 2'b00;//PCSource is arbitrary
+        ALUOp <= `ALUOP_ANDI;
+        EXTOp <= `EXTOP_LOGIC;
+        ALUSrcA <= 2'b01;
+        ALUSrcB <= 2'b10;
+        RegWrite <= 0;
+        RegDst <= 2'b00;//RegDst is arbitraty
+		  IorD <= 0;//IorD is arbitrary
+        nextstate <= 5'd24;
+      end
+      
+      /*ORI*/
+      5'd21:
+      begin
+        PCWriteCond <= 4'b0000;
+        PCWrite <= 0;
+        MemRead <= 0;
+        MemWrite <= 0;
+        RegData <= 2'b00;//RegData is arbitrary
+        IRWrite <= 0;
+        PCSource <= 2'b00;//PCSource is arbitrary
+        ALUOp <= `ALUOP_ORI;
+        EXTOp <= `EXTOP_LOGIC;
+        ALUSrcA <= 2'b01;
+        ALUSrcB <= 2'b10;
+        RegWrite <= 0;
+        RegDst <= 2'b00;//RegDst is arbitraty
+		  IorD <= 0;//IorD is arbitrary
+        nextstate <= 5'd24;
+      end
+      
+      /*XORI*/
+      5'd22:
+      begin
+        PCWriteCond <= 4'b0000;
+        PCWrite <= 0;
+        MemRead <= 0;
+        MemWrite <= 0;
+        RegData <= 2'b00;//RegData is arbitrary
+        IRWrite <= 0;
+        PCSource <= 2'b00;//PCSource is arbitrary
+        ALUOp <= `ALUOP_XORI;
+        EXTOp <= `EXTOP_LOGIC;
+        ALUSrcA <= 2'b01;
+        ALUSrcB <= 2'b10;
+        RegWrite <= 0;
+        RegDst <= 2'b00;//RegDst is arbitraty
+		  IorD <= 0;//IorD is arbitrary
+        nextstate <= 5'd24;
+      end
+      
+      /*LUI*/
+      5'd23:
+      begin
+        PCWriteCond <= 4'b0000;
+        PCWrite <= 0;
+        MemRead <= 0;
+        MemWrite <= 0;
+        RegData <= 2'b00;//RegData is arbitrary
+        IRWrite <= 0;
+        PCSource <= 2'b00;//PCSource is arbitrary
+        ALUOp <= `ALUOP_LUI;
+        EXTOp <= 2'b00;//EXTOp is arbitrary
+        ALUSrcA <= 2'b01;
+        ALUSrcB <= 2'b10;
+        RegWrite <= 0;
+        RegDst <= 2'b00;//RegDst is arbitraty
+		  IorD <= 0;//IorD is arbitrary
+        nextstate <= 5'd24;
+      end
+      
+      /*I-format completion*/
+      5'd24:
+      begin
+        PCWriteCond <= 4'b0000;
+        PCWrite <= 0;
+        MemRead <= 0;
+        MemWrite <= 0;
+        RegData <= 2'b00;;
+        IRWrite <= 0;
+        PCSource <= 2'b00;//PCSource is arbitrary
+        ALUOp <= 4'b0000;//ALUOp is arbitrary
+        EXTOp <= 2'b00;//EXTOp is arbitrary
+        ALUSrcA <= 2'b00;//ALUSrcA is arbitrary
+        ALUSrcB <= 2'b00;//ALUSrcB is arbitrary
+        RegWrite <= 1;
+        RegDst <= 2'b00;
+		  IorD <= 0;//IorD is arbitrary
+        nextstate <= 5'd0;
+      end
+      
+      default:
+      begin
+        PCWriteCond <= 4'b0000;
+        PCWrite <= 0;
+        MemRead <= 0;
+        MemWrite <= 0;
+        RegData <= 2'b00;
+        IRWrite <= 0;
+        PCSource <= 2'b00;
+        ALUOp <= 4'b0000;
+        EXTOp <= 2'b00;
+        ALUSrcA <= 2'b00;
+        ALUSrcB <= 2'b00;
+        RegWrite <= 0;
+        RegDst <= 2'b00;
+		  IorD <= 0;
+		  nextstate <= 5'd0;
+      end
+       
+    endcase
+  end
+  
+endmodule

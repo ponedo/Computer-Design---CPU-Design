@@ -1,0 +1,2 @@
+xst -intstyle ise -ifn "D:/GODP/Lab_PCPU_INTR/PCPU_INTR.xst" -ofn "D:/GODP/Lab_PCPU_INTR/PCPU_INTR.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd Codes/IO -sd ipcore_dir -nt timestamp -uc Codes/Org-Sword.ucf -p xc7k160t-ffg676-2L PCPU_INTR.ngc PCPU_INTR.ngd  

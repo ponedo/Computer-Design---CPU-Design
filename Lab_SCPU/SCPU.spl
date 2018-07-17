@@ -1,0 +1,17 @@
+[Inputs]
+clk
+reset
+MIO_ready
+INT
+=inst_in[31:0]=
+=Data_in[31:0]=
+[Outputs]
+mem_w
+CPU_MIO
+=PC_out[31:0]=
+=Addr_out[31:0]=
+=Data_out[31:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel SCPU
+

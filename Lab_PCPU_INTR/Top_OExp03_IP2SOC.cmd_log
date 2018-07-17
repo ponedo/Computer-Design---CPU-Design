@@ -1,0 +1,217 @@
+xst -intstyle ise -ifn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.xst" -ofn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.syr" 
+xst -intstyle ise -ifn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.xst" -ofn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.syr" 
+xst -intstyle ise -ifn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.xst" -ofn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.syr" 
+xst -intstyle ise -ifn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.xst" -ofn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.syr" 
+xst -intstyle ise -ifn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.xst" -ofn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.syr" 
+xst -intstyle ise -ifn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.xst" -ofn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.syr" 
+xst -intstyle ise -ifn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.xst" -ofn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.syr" 
+xst -intstyle ise -ifn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.xst" -ofn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.syr" 
+xst -intstyle ise -ifn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.xst" -ofn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd Codes/IO -sd ipcore_dir -nt timestamp -uc Codes/Org-Sword.ucf -p xc7k160t-ffg676-2L Top_OExp03_IP2SOC.ngc Top_OExp03_IP2SOC.ngd  
+map -intstyle ise -p xc7k160t-ffg676-2L -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ngd Top_OExp03_IP2SOC.pcf 
+par -w -intstyle ise -ol high -mt off Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ncd Top_OExp03_IP2SOC.pcf 
+trce -intstyle ise -v 3 -s 2L -n 3 -fastpaths -xml Top_OExp03_IP2SOC.twx Top_OExp03_IP2SOC.ncd -o Top_OExp03_IP2SOC.twr Top_OExp03_IP2SOC.pcf 
+bitgen -intstyle ise -f Top_OExp03_IP2SOC.ut Top_OExp03_IP2SOC.ncd 
+xst -intstyle ise -ifn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.xst" -ofn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd Codes/IO -sd ipcore_dir -nt timestamp -uc Codes/Org-Sword.ucf -p xc7k160t-ffg676-2L Top_OExp03_IP2SOC.ngc Top_OExp03_IP2SOC.ngd  
+map -intstyle ise -p xc7k160t-ffg676-2L -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ngd Top_OExp03_IP2SOC.pcf 
+par -w -intstyle ise -ol high -mt off Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ncd Top_OExp03_IP2SOC.pcf 
+trce -intstyle ise -v 3 -s 2L -n 3 -fastpaths -xml Top_OExp03_IP2SOC.twx Top_OExp03_IP2SOC.ncd -o Top_OExp03_IP2SOC.twr Top_OExp03_IP2SOC.pcf 
+bitgen -intstyle ise -f Top_OExp03_IP2SOC.ut Top_OExp03_IP2SOC.ncd 
+xst -intstyle ise -ifn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.xst" -ofn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd Codes/IO -sd ipcore_dir -nt timestamp -uc Codes/Org-Sword.ucf -p xc7k160t-ffg676-2L Top_OExp03_IP2SOC.ngc Top_OExp03_IP2SOC.ngd  
+map -intstyle ise -p xc7k160t-ffg676-2L -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ngd Top_OExp03_IP2SOC.pcf 
+par -w -intstyle ise -ol high -mt off Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ncd Top_OExp03_IP2SOC.pcf 
+trce -intstyle ise -v 3 -s 2L -n 3 -fastpaths -xml Top_OExp03_IP2SOC.twx Top_OExp03_IP2SOC.ncd -o Top_OExp03_IP2SOC.twr Top_OExp03_IP2SOC.pcf 
+bitgen -intstyle ise -f Top_OExp03_IP2SOC.ut Top_OExp03_IP2SOC.ncd 
+xst -intstyle ise -ifn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.xst" -ofn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd Codes/IO -sd ipcore_dir -nt timestamp -uc Codes/Org-Sword.ucf -p xc7k160t-ffg676-2L Top_OExp03_IP2SOC.ngc Top_OExp03_IP2SOC.ngd  
+map -intstyle ise -p xc7k160t-ffg676-2L -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ngd Top_OExp03_IP2SOC.pcf 
+par -w -intstyle ise -ol high -mt off Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ncd Top_OExp03_IP2SOC.pcf 
+trce -intstyle ise -v 3 -s 2L -n 3 -fastpaths -xml Top_OExp03_IP2SOC.twx Top_OExp03_IP2SOC.ncd -o Top_OExp03_IP2SOC.twr Top_OExp03_IP2SOC.pcf 
+bitgen -intstyle ise -f Top_OExp03_IP2SOC.ut Top_OExp03_IP2SOC.ncd 
+xst -intstyle ise -ifn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.xst" -ofn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd Codes/IO -sd ipcore_dir -nt timestamp -uc Codes/Org-Sword.ucf -p xc7k160t-ffg676-2L Top_OExp03_IP2SOC.ngc Top_OExp03_IP2SOC.ngd  
+map -intstyle ise -p xc7k160t-ffg676-2L -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ngd Top_OExp03_IP2SOC.pcf 
+par -w -intstyle ise -ol high -mt off Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ncd Top_OExp03_IP2SOC.pcf 
+trce -intstyle ise -v 3 -s 2L -n 3 -fastpaths -xml Top_OExp03_IP2SOC.twx Top_OExp03_IP2SOC.ncd -o Top_OExp03_IP2SOC.twr Top_OExp03_IP2SOC.pcf 
+bitgen -intstyle ise -f Top_OExp03_IP2SOC.ut Top_OExp03_IP2SOC.ncd 
+xst -intstyle ise -ifn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.xst" -ofn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.syr" 
+xst -intstyle ise -ifn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.xst" -ofn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd Codes/IO -sd ipcore_dir -nt timestamp -uc Codes/Org-Sword.ucf -p xc7k160t-ffg676-2L Top_OExp03_IP2SOC.ngc Top_OExp03_IP2SOC.ngd  
+map -intstyle ise -p xc7k160t-ffg676-2L -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ngd Top_OExp03_IP2SOC.pcf 
+par -w -intstyle ise -ol high -mt off Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ncd Top_OExp03_IP2SOC.pcf 
+trce -intstyle ise -v 3 -s 2L -n 3 -fastpaths -xml Top_OExp03_IP2SOC.twx Top_OExp03_IP2SOC.ncd -o Top_OExp03_IP2SOC.twr Top_OExp03_IP2SOC.pcf 
+bitgen -intstyle ise -f Top_OExp03_IP2SOC.ut Top_OExp03_IP2SOC.ncd 
+xst -intstyle ise -ifn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.xst" -ofn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.syr" 
+xst -intstyle ise -ifn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.xst" -ofn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.syr" 
+xst -intstyle ise -ifn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.xst" -ofn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd Codes/IO -sd ipcore_dir -nt timestamp -uc Codes/Org-Sword.ucf -p xc7k160t-ffg676-2L Top_OExp03_IP2SOC.ngc Top_OExp03_IP2SOC.ngd  
+map -intstyle ise -p xc7k160t-ffg676-2L -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ngd Top_OExp03_IP2SOC.pcf 
+par -w -intstyle ise -ol high -mt off Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ncd Top_OExp03_IP2SOC.pcf 
+trce -intstyle ise -v 3 -s 2L -n 3 -fastpaths -xml Top_OExp03_IP2SOC.twx Top_OExp03_IP2SOC.ncd -o Top_OExp03_IP2SOC.twr Top_OExp03_IP2SOC.pcf 
+bitgen -intstyle ise -f Top_OExp03_IP2SOC.ut Top_OExp03_IP2SOC.ncd 
+xst -intstyle ise -ifn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.xst" -ofn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.syr" 
+xst -intstyle ise -ifn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.xst" -ofn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd Codes/IO -sd ipcore_dir -nt timestamp -uc Codes/Org-Sword.ucf -p xc7k160t-ffg676-2L Top_OExp03_IP2SOC.ngc Top_OExp03_IP2SOC.ngd  
+map -intstyle ise -p xc7k160t-ffg676-2L -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ngd Top_OExp03_IP2SOC.pcf 
+par -w -intstyle ise -ol high -mt off Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ncd Top_OExp03_IP2SOC.pcf 
+trce -intstyle ise -v 3 -s 2L -n 3 -fastpaths -xml Top_OExp03_IP2SOC.twx Top_OExp03_IP2SOC.ncd -o Top_OExp03_IP2SOC.twr Top_OExp03_IP2SOC.pcf 
+bitgen -intstyle ise -f Top_OExp03_IP2SOC.ut Top_OExp03_IP2SOC.ncd 
+xst -intstyle ise -ifn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.xst" -ofn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.syr" 
+xst -intstyle ise -ifn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.xst" -ofn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.syr" 
+xst -intstyle ise -ifn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.xst" -ofn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.syr" 
+xst -intstyle ise -ifn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.xst" -ofn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd Codes/IO -sd ipcore_dir -nt timestamp -uc Codes/Org-Sword.ucf -p xc7k160t-ffg676-2L Top_OExp03_IP2SOC.ngc Top_OExp03_IP2SOC.ngd  
+map -intstyle ise -p xc7k160t-ffg676-2L -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ngd Top_OExp03_IP2SOC.pcf 
+par -w -intstyle ise -ol high -mt off Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ncd Top_OExp03_IP2SOC.pcf 
+trce -intstyle ise -v 3 -s 2L -n 3 -fastpaths -xml Top_OExp03_IP2SOC.twx Top_OExp03_IP2SOC.ncd -o Top_OExp03_IP2SOC.twr Top_OExp03_IP2SOC.pcf 
+bitgen -intstyle ise -f Top_OExp03_IP2SOC.ut Top_OExp03_IP2SOC.ncd 
+xst -intstyle ise -ifn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.xst" -ofn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.syr" 
+xst -intstyle ise -ifn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.xst" -ofn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd Codes/IO -sd ipcore_dir -nt timestamp -uc Codes/Org-Sword.ucf -p xc7k160t-ffg676-2L Top_OExp03_IP2SOC.ngc Top_OExp03_IP2SOC.ngd  
+map -intstyle ise -p xc7k160t-ffg676-2L -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ngd Top_OExp03_IP2SOC.pcf 
+par -w -intstyle ise -ol high -mt off Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ncd Top_OExp03_IP2SOC.pcf 
+trce -intstyle ise -v 3 -s 2L -n 3 -fastpaths -xml Top_OExp03_IP2SOC.twx Top_OExp03_IP2SOC.ncd -o Top_OExp03_IP2SOC.twr Top_OExp03_IP2SOC.pcf 
+bitgen -intstyle ise -f Top_OExp03_IP2SOC.ut Top_OExp03_IP2SOC.ncd 
+xst -intstyle ise -ifn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.xst" -ofn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd Codes/IO -sd ipcore_dir -nt timestamp -uc Codes/Org-Sword.ucf -p xc7k160t-ffg676-2L Top_OExp03_IP2SOC.ngc Top_OExp03_IP2SOC.ngd  
+map -intstyle ise -p xc7k160t-ffg676-2L -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ngd Top_OExp03_IP2SOC.pcf 
+par -w -intstyle ise -ol high -mt off Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ncd Top_OExp03_IP2SOC.pcf 
+trce -intstyle ise -v 3 -s 2L -n 3 -fastpaths -xml Top_OExp03_IP2SOC.twx Top_OExp03_IP2SOC.ncd -o Top_OExp03_IP2SOC.twr Top_OExp03_IP2SOC.pcf 
+bitgen -intstyle ise -f Top_OExp03_IP2SOC.ut Top_OExp03_IP2SOC.ncd 
+xst -intstyle ise -ifn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.xst" -ofn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd Codes/IO -sd ipcore_dir -nt timestamp -uc Codes/Org-Sword.ucf -p xc7k160t-ffg676-2L Top_OExp03_IP2SOC.ngc Top_OExp03_IP2SOC.ngd  
+map -intstyle ise -p xc7k160t-ffg676-2L -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ngd Top_OExp03_IP2SOC.pcf 
+par -w -intstyle ise -ol high -mt off Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ncd Top_OExp03_IP2SOC.pcf 
+trce -intstyle ise -v 3 -s 2L -n 3 -fastpaths -xml Top_OExp03_IP2SOC.twx Top_OExp03_IP2SOC.ncd -o Top_OExp03_IP2SOC.twr Top_OExp03_IP2SOC.pcf 
+bitgen -intstyle ise -f Top_OExp03_IP2SOC.ut Top_OExp03_IP2SOC.ncd 
+xst -intstyle ise -ifn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.xst" -ofn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd Codes/IO -sd ipcore_dir -nt timestamp -uc Codes/Org-Sword.ucf -p xc7k160t-ffg676-2L Top_OExp03_IP2SOC.ngc Top_OExp03_IP2SOC.ngd  
+map -intstyle ise -p xc7k160t-ffg676-2L -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ngd Top_OExp03_IP2SOC.pcf 
+par -w -intstyle ise -ol high -mt off Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ncd Top_OExp03_IP2SOC.pcf 
+trce -intstyle ise -v 3 -s 2L -n 3 -fastpaths -xml Top_OExp03_IP2SOC.twx Top_OExp03_IP2SOC.ncd -o Top_OExp03_IP2SOC.twr Top_OExp03_IP2SOC.pcf 
+bitgen -intstyle ise -f Top_OExp03_IP2SOC.ut Top_OExp03_IP2SOC.ncd 
+xst -intstyle ise -ifn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.xst" -ofn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.syr" 
+xst -intstyle ise -ifn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.xst" -ofn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.syr" 
+xst -intstyle ise -ifn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.xst" -ofn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.syr" 
+xst -intstyle ise -ifn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.xst" -ofn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd Codes/IO -sd ipcore_dir -nt timestamp -uc Codes/Org-Sword.ucf -p xc7k160t-ffg676-2L Top_OExp03_IP2SOC.ngc Top_OExp03_IP2SOC.ngd  
+map -intstyle ise -p xc7k160t-ffg676-2L -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ngd Top_OExp03_IP2SOC.pcf 
+par -w -intstyle ise -ol high -mt off Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ncd Top_OExp03_IP2SOC.pcf 
+trce -intstyle ise -v 3 -s 2L -n 3 -fastpaths -xml Top_OExp03_IP2SOC.twx Top_OExp03_IP2SOC.ncd -o Top_OExp03_IP2SOC.twr Top_OExp03_IP2SOC.pcf 
+bitgen -intstyle ise -f Top_OExp03_IP2SOC.ut Top_OExp03_IP2SOC.ncd 
+xst -intstyle ise -ifn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.xst" -ofn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd Codes/IO -sd ipcore_dir -nt timestamp -uc Codes/Org-Sword.ucf -p xc7k160t-ffg676-2L Top_OExp03_IP2SOC.ngc Top_OExp03_IP2SOC.ngd  
+map -intstyle ise -p xc7k160t-ffg676-2L -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ngd Top_OExp03_IP2SOC.pcf 
+par -w -intstyle ise -ol high -mt off Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ncd Top_OExp03_IP2SOC.pcf 
+trce -intstyle ise -v 3 -s 2L -n 3 -fastpaths -xml Top_OExp03_IP2SOC.twx Top_OExp03_IP2SOC.ncd -o Top_OExp03_IP2SOC.twr Top_OExp03_IP2SOC.pcf 
+bitgen -intstyle ise -f Top_OExp03_IP2SOC.ut Top_OExp03_IP2SOC.ncd 
+xst -intstyle ise -ifn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.xst" -ofn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd Codes/IO -sd ipcore_dir -nt timestamp -uc Codes/Org-Sword.ucf -p xc7k160t-ffg676-2L Top_OExp03_IP2SOC.ngc Top_OExp03_IP2SOC.ngd  
+map -intstyle ise -p xc7k160t-ffg676-2L -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ngd Top_OExp03_IP2SOC.pcf 
+par -w -intstyle ise -ol high -mt off Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ncd Top_OExp03_IP2SOC.pcf 
+trce -intstyle ise -v 3 -s 2L -n 3 -fastpaths -xml Top_OExp03_IP2SOC.twx Top_OExp03_IP2SOC.ncd -o Top_OExp03_IP2SOC.twr Top_OExp03_IP2SOC.pcf 
+bitgen -intstyle ise -f Top_OExp03_IP2SOC.ut Top_OExp03_IP2SOC.ncd 
+xst -intstyle ise -ifn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.xst" -ofn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd Codes/IO -sd ipcore_dir -nt timestamp -uc Codes/Org-Sword.ucf -p xc7k160t-ffg676-2L Top_OExp03_IP2SOC.ngc Top_OExp03_IP2SOC.ngd  
+map -intstyle ise -p xc7k160t-ffg676-2L -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ngd Top_OExp03_IP2SOC.pcf 
+par -w -intstyle ise -ol high -mt off Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ncd Top_OExp03_IP2SOC.pcf 
+trce -intstyle ise -v 3 -s 2L -n 3 -fastpaths -xml Top_OExp03_IP2SOC.twx Top_OExp03_IP2SOC.ncd -o Top_OExp03_IP2SOC.twr Top_OExp03_IP2SOC.pcf 
+bitgen -intstyle ise -f Top_OExp03_IP2SOC.ut Top_OExp03_IP2SOC.ncd 
+xst -intstyle ise -ifn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.xst" -ofn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd Codes/IO -sd ipcore_dir -nt timestamp -uc Codes/Org-Sword.ucf -p xc7k160t-ffg676-2L Top_OExp03_IP2SOC.ngc Top_OExp03_IP2SOC.ngd  
+map -intstyle ise -p xc7k160t-ffg676-2L -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ngd Top_OExp03_IP2SOC.pcf 
+par -w -intstyle ise -ol high -mt off Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ncd Top_OExp03_IP2SOC.pcf 
+trce -intstyle ise -v 3 -s 2L -n 3 -fastpaths -xml Top_OExp03_IP2SOC.twx Top_OExp03_IP2SOC.ncd -o Top_OExp03_IP2SOC.twr Top_OExp03_IP2SOC.pcf 
+bitgen -intstyle ise -f Top_OExp03_IP2SOC.ut Top_OExp03_IP2SOC.ncd 
+xst -intstyle ise -ifn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.xst" -ofn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd Codes/IO -sd ipcore_dir -nt timestamp -uc Codes/Org-Sword.ucf -p xc7k160t-ffg676-2L Top_OExp03_IP2SOC.ngc Top_OExp03_IP2SOC.ngd  
+map -intstyle ise -p xc7k160t-ffg676-2L -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ngd Top_OExp03_IP2SOC.pcf 
+par -w -intstyle ise -ol high -mt off Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ncd Top_OExp03_IP2SOC.pcf 
+trce -intstyle ise -v 3 -s 2L -n 3 -fastpaths -xml Top_OExp03_IP2SOC.twx Top_OExp03_IP2SOC.ncd -o Top_OExp03_IP2SOC.twr Top_OExp03_IP2SOC.pcf 
+bitgen -intstyle ise -f Top_OExp03_IP2SOC.ut Top_OExp03_IP2SOC.ncd 
+xst -intstyle ise -ifn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.xst" -ofn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd Codes/IO -sd ipcore_dir -nt timestamp -uc Codes/Org-Sword.ucf -p xc7k160t-ffg676-2L Top_OExp03_IP2SOC.ngc Top_OExp03_IP2SOC.ngd  
+map -intstyle ise -p xc7k160t-ffg676-2L -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ngd Top_OExp03_IP2SOC.pcf 
+par -w -intstyle ise -ol high -mt off Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ncd Top_OExp03_IP2SOC.pcf 
+trce -intstyle ise -v 3 -s 2L -n 3 -fastpaths -xml Top_OExp03_IP2SOC.twx Top_OExp03_IP2SOC.ncd -o Top_OExp03_IP2SOC.twr Top_OExp03_IP2SOC.pcf 
+bitgen -intstyle ise -f Top_OExp03_IP2SOC.ut Top_OExp03_IP2SOC.ncd 
+xst -intstyle ise -ifn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.xst" -ofn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd Codes/IO -sd ipcore_dir -nt timestamp -uc Codes/Org-Sword.ucf -p xc7k160t-ffg676-2L Top_OExp03_IP2SOC.ngc Top_OExp03_IP2SOC.ngd  
+map -intstyle ise -p xc7k160t-ffg676-2L -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ngd Top_OExp03_IP2SOC.pcf 
+par -w -intstyle ise -ol high -mt off Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ncd Top_OExp03_IP2SOC.pcf 
+trce -intstyle ise -v 3 -s 2L -n 3 -fastpaths -xml Top_OExp03_IP2SOC.twx Top_OExp03_IP2SOC.ncd -o Top_OExp03_IP2SOC.twr Top_OExp03_IP2SOC.pcf 
+bitgen -intstyle ise -f Top_OExp03_IP2SOC.ut Top_OExp03_IP2SOC.ncd 
+xst -intstyle ise -ifn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.xst" -ofn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd Codes/IO -sd ipcore_dir -nt timestamp -uc Codes/Org-Sword.ucf -p xc7k160t-ffg676-2L Top_OExp03_IP2SOC.ngc Top_OExp03_IP2SOC.ngd  
+map -intstyle ise -p xc7k160t-ffg676-2L -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ngd Top_OExp03_IP2SOC.pcf 
+par -w -intstyle ise -ol high -mt off Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ncd Top_OExp03_IP2SOC.pcf 
+trce -intstyle ise -v 3 -s 2L -n 3 -fastpaths -xml Top_OExp03_IP2SOC.twx Top_OExp03_IP2SOC.ncd -o Top_OExp03_IP2SOC.twr Top_OExp03_IP2SOC.pcf 
+bitgen -intstyle ise -f Top_OExp03_IP2SOC.ut Top_OExp03_IP2SOC.ncd 
+xst -intstyle ise -ifn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.xst" -ofn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd Codes/IO -sd ipcore_dir -nt timestamp -uc Codes/Org-Sword.ucf -p xc7k160t-ffg676-2L Top_OExp03_IP2SOC.ngc Top_OExp03_IP2SOC.ngd  
+map -intstyle ise -p xc7k160t-ffg676-2L -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ngd Top_OExp03_IP2SOC.pcf 
+par -w -intstyle ise -ol high -mt off Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ncd Top_OExp03_IP2SOC.pcf 
+trce -intstyle ise -v 3 -s 2L -n 3 -fastpaths -xml Top_OExp03_IP2SOC.twx Top_OExp03_IP2SOC.ncd -o Top_OExp03_IP2SOC.twr Top_OExp03_IP2SOC.pcf 
+bitgen -intstyle ise -f Top_OExp03_IP2SOC.ut Top_OExp03_IP2SOC.ncd 
+xst -intstyle ise -ifn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.xst" -ofn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd Codes/IO -sd ipcore_dir -nt timestamp -uc Codes/Org-Sword.ucf -p xc7k160t-ffg676-2L Top_OExp03_IP2SOC.ngc Top_OExp03_IP2SOC.ngd  
+map -intstyle ise -p xc7k160t-ffg676-2L -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ngd Top_OExp03_IP2SOC.pcf 
+par -w -intstyle ise -ol high -mt off Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ncd Top_OExp03_IP2SOC.pcf 
+trce -intstyle ise -v 3 -s 2L -n 3 -fastpaths -xml Top_OExp03_IP2SOC.twx Top_OExp03_IP2SOC.ncd -o Top_OExp03_IP2SOC.twr Top_OExp03_IP2SOC.pcf 
+bitgen -intstyle ise -f Top_OExp03_IP2SOC.ut Top_OExp03_IP2SOC.ncd 
+xst -intstyle ise -ifn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.xst" -ofn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd Codes/IO -sd ipcore_dir -nt timestamp -uc Codes/Org-Sword.ucf -p xc7k160t-ffg676-2L Top_OExp03_IP2SOC.ngc Top_OExp03_IP2SOC.ngd  
+map -intstyle ise -p xc7k160t-ffg676-2L -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ngd Top_OExp03_IP2SOC.pcf 
+par -w -intstyle ise -ol high -mt off Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ncd Top_OExp03_IP2SOC.pcf 
+trce -intstyle ise -v 3 -s 2L -n 3 -fastpaths -xml Top_OExp03_IP2SOC.twx Top_OExp03_IP2SOC.ncd -o Top_OExp03_IP2SOC.twr Top_OExp03_IP2SOC.pcf 
+bitgen -intstyle ise -f Top_OExp03_IP2SOC.ut Top_OExp03_IP2SOC.ncd 
+xst -intstyle ise -ifn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.xst" -ofn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd Codes/IO -sd ipcore_dir -nt timestamp -uc Codes/Org-Sword.ucf -p xc7k160t-ffg676-2L Top_OExp03_IP2SOC.ngc Top_OExp03_IP2SOC.ngd  
+map -intstyle ise -p xc7k160t-ffg676-2L -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ngd Top_OExp03_IP2SOC.pcf 
+par -w -intstyle ise -ol high -mt off Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ncd Top_OExp03_IP2SOC.pcf 
+trce -intstyle ise -v 3 -s 2L -n 3 -fastpaths -xml Top_OExp03_IP2SOC.twx Top_OExp03_IP2SOC.ncd -o Top_OExp03_IP2SOC.twr Top_OExp03_IP2SOC.pcf 
+bitgen -intstyle ise -f Top_OExp03_IP2SOC.ut Top_OExp03_IP2SOC.ncd 
+xst -intstyle ise -ifn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.xst" -ofn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd Codes/IO -sd ipcore_dir -nt timestamp -uc Codes/Org-Sword.ucf -p xc7k160t-ffg676-2L Top_OExp03_IP2SOC.ngc Top_OExp03_IP2SOC.ngd  
+map -intstyle ise -p xc7k160t-ffg676-2L -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ngd Top_OExp03_IP2SOC.pcf 
+par -w -intstyle ise -ol high -mt off Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ncd Top_OExp03_IP2SOC.pcf 
+trce -intstyle ise -v 3 -s 2L -n 3 -fastpaths -xml Top_OExp03_IP2SOC.twx Top_OExp03_IP2SOC.ncd -o Top_OExp03_IP2SOC.twr Top_OExp03_IP2SOC.pcf 
+bitgen -intstyle ise -f Top_OExp03_IP2SOC.ut Top_OExp03_IP2SOC.ncd 
+xst -intstyle ise -ifn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.xst" -ofn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd Codes/IO -sd ipcore_dir -nt timestamp -uc Codes/Org-Sword.ucf -p xc7k160t-ffg676-2L Top_OExp03_IP2SOC.ngc Top_OExp03_IP2SOC.ngd  
+map -intstyle ise -p xc7k160t-ffg676-2L -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ngd Top_OExp03_IP2SOC.pcf 
+par -w -intstyle ise -ol high -mt off Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ncd Top_OExp03_IP2SOC.pcf 
+trce -intstyle ise -v 3 -s 2L -n 3 -fastpaths -xml Top_OExp03_IP2SOC.twx Top_OExp03_IP2SOC.ncd -o Top_OExp03_IP2SOC.twr Top_OExp03_IP2SOC.pcf 
+bitgen -intstyle ise -f Top_OExp03_IP2SOC.ut Top_OExp03_IP2SOC.ncd 
+xst -intstyle ise -ifn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.xst" -ofn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd Codes/IO -sd ipcore_dir -nt timestamp -uc Codes/Org-Sword.ucf -p xc7k160t-ffg676-2L Top_OExp03_IP2SOC.ngc Top_OExp03_IP2SOC.ngd  
+map -intstyle ise -p xc7k160t-ffg676-2L -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ngd Top_OExp03_IP2SOC.pcf 
+par -w -intstyle ise -ol high -mt off Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ncd Top_OExp03_IP2SOC.pcf 
+trce -intstyle ise -v 3 -s 2L -n 3 -fastpaths -xml Top_OExp03_IP2SOC.twx Top_OExp03_IP2SOC.ncd -o Top_OExp03_IP2SOC.twr Top_OExp03_IP2SOC.pcf 
+bitgen -intstyle ise -f Top_OExp03_IP2SOC.ut Top_OExp03_IP2SOC.ncd 
+xst -intstyle ise -ifn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.xst" -ofn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd Codes/IO -sd ipcore_dir -nt timestamp -uc Codes/Org-Sword.ucf -p xc7k160t-ffg676-2L Top_OExp03_IP2SOC.ngc Top_OExp03_IP2SOC.ngd  
+map -intstyle ise -p xc7k160t-ffg676-2L -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ngd Top_OExp03_IP2SOC.pcf 
+par -w -intstyle ise -ol high -mt off Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ncd Top_OExp03_IP2SOC.pcf 
+trce -intstyle ise -v 3 -s 2L -n 3 -fastpaths -xml Top_OExp03_IP2SOC.twx Top_OExp03_IP2SOC.ncd -o Top_OExp03_IP2SOC.twr Top_OExp03_IP2SOC.pcf 
+bitgen -intstyle ise -f Top_OExp03_IP2SOC.ut Top_OExp03_IP2SOC.ncd 
+xst -intstyle ise -ifn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.xst" -ofn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd Codes/IO -sd ipcore_dir -nt timestamp -uc Codes/Org-Sword.ucf -p xc7k160t-ffg676-2L Top_OExp03_IP2SOC.ngc Top_OExp03_IP2SOC.ngd  
+map -intstyle ise -p xc7k160t-ffg676-2L -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ngd Top_OExp03_IP2SOC.pcf 
+par -w -intstyle ise -ol high -mt off Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ncd Top_OExp03_IP2SOC.pcf 
+trce -intstyle ise -v 3 -s 2L -n 3 -fastpaths -xml Top_OExp03_IP2SOC.twx Top_OExp03_IP2SOC.ncd -o Top_OExp03_IP2SOC.twr Top_OExp03_IP2SOC.pcf 
+bitgen -intstyle ise -f Top_OExp03_IP2SOC.ut Top_OExp03_IP2SOC.ncd 
+xst -intstyle ise -ifn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.xst" -ofn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd Codes/IO -sd ipcore_dir -nt timestamp -uc Codes/Org-Sword.ucf -p xc7k160t-ffg676-2L Top_OExp03_IP2SOC.ngc Top_OExp03_IP2SOC.ngd  
+map -intstyle ise -p xc7k160t-ffg676-2L -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ngd Top_OExp03_IP2SOC.pcf 
+par -w -intstyle ise -ol high -mt off Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ncd Top_OExp03_IP2SOC.pcf 
+trce -intstyle ise -v 3 -s 2L -n 3 -fastpaths -xml Top_OExp03_IP2SOC.twx Top_OExp03_IP2SOC.ncd -o Top_OExp03_IP2SOC.twr Top_OExp03_IP2SOC.pcf 
+bitgen -intstyle ise -f Top_OExp03_IP2SOC.ut Top_OExp03_IP2SOC.ncd 
+xst -intstyle ise -ifn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.xst" -ofn "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd Codes/IO -sd ipcore_dir -nt timestamp -uc Codes/Org-Sword.ucf -p xc7k160t-ffg676-2L Top_OExp03_IP2SOC.ngc Top_OExp03_IP2SOC.ngd  
+map -intstyle ise -p xc7k160t-ffg676-2L -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ngd Top_OExp03_IP2SOC.pcf 
+par -w -intstyle ise -ol high -mt off Top_OExp03_IP2SOC_map.ncd Top_OExp03_IP2SOC.ncd Top_OExp03_IP2SOC.pcf 
+trce -intstyle ise -v 3 -s 2L -n 3 -fastpaths -xml Top_OExp03_IP2SOC.twx Top_OExp03_IP2SOC.ncd -o Top_OExp03_IP2SOC.twr Top_OExp03_IP2SOC.pcf 
+bitgen -intstyle ise -f Top_OExp03_IP2SOC.ut Top_OExp03_IP2SOC.ncd 

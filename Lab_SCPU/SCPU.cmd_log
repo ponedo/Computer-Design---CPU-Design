@@ -1,0 +1,2 @@
+vhdtdtfi -lib work D:/GODP/Lab3/Codes/SCPU.v -lang verilog -prj Lab3 -o SCPU.spl -module SCPU -template C:/Xilinx/14.7/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family kintex7 SCPU.spl D:/GODP/Lab3/SCPU.sym 

@@ -1,0 +1,26 @@
+module Cause(data_in, data_out, rst, clk, CauseWrite)
+  
+  /*
+  *[31:4] Unused
+  *[3:2] ExcCode
+  *[1:0] 2'b00
+  */
+  
+  input [31:0] data_in;
+  input rst;
+  input clk;
+  input CauseWrite;
+  output reg [31:0] data_out;
+  
+  always @ (posedge clk or posedge rst)
+  begin
+    if (rst)
+      data_out <= 32'h0000_0000;
+    else
+      begin
+        if (CauseWrite)
+          data_out <= data_in;
+      end
+  end
+  
+endmodule

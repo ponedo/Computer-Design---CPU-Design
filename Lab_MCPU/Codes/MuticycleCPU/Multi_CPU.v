@@ -1,0 +1,95 @@
+module Multi_CPU (
+    input clk,
+    input reset,
+    output [31:0] inst_out,
+    input INT,
+    output [31:0] PC_out,
+    output mem_w,
+    output [31:0] Addr_out,
+    input [31:0] Data_in,
+    output [31:0] Data_out,
+    output [4:0] state,
+    output CPU_MIO,
+    input MIO_ready, 
+	 output [31:0] v1
+    );
+  
+  /*Datapath*/
+  wire [31:0] npc;
+  wire [31:0] JumpAddr;
+  wire [31:0] ReadData1;
+  wire [31:0] ReadData2;
+  wire [31:0] Aout;
+  wire [31:0] Bout;
+  wire [31:0] ALUsrc1;
+  wire [31:0] ALUsrc2;
+  wire [31:0] ImmNum;
+  wire [31:0] BrchOffset;
+  wire [63:0] ALUresult;
+  wire sign;
+  wire zero;
+  wire [31:0] ALUout;
+  wire [3:0] be;
+  wire [31:0] preMemData;
+  wire [31:0] MemData;
+  wire [4:0] WriteAddr;
+  wire [31:0] WriteData;
+  /*Signals*/
+  wire [3:0] PCWriteCond;
+  wire PCWrite;
+  wire MemRead;
+  wire [1:0] RegData;
+  wire IRWrite;
+  wire [1:0] PCSource;
+  wire [3:0] ALUOp;
+  wire [1:0] EXTOp;
+  wire [1:0] ALUSrcA;
+  wire [1:0] ALUSrcB;
+  wire RegWrite;
+  wire [1:0] RegDst;
+  wire [4:0] ALUCtrl;
+  wire Brch;
+  wire preJump;
+  wire Jump;
+  wire PCWr;
+  wire [1:0] Shift;
+  wire [1:0] preRegData1;
+  wire [1:0] RegData1;
+  wire IorD;
+  
+  assign Data_out = Bout;
+  
+  /*Datapath*/
+  PC Pc(npc, PC_out, reset, clk, PCWr);
+  assign PCWr = PCWrite | Brch | Jump;
+  IR ir(Data_in, IRWrite, clk, reset, inst_out);
+  RF rf(inst_out[25:21], inst_out[20:16], WriteAddr, WriteData, clk, RegWrite, reset, ReadData1, ReadData2, v1);
+  mux_4 #(5) regdst(inst_out[20:16], inst_out[15:11], 5'd0, 5'd31, RegDst, WriteAddr); //RegDst
+  mux_4 regdata(ALUout, MemData, 32'h0000_0000, PC_out, (RegData | RegData1), WriteData); //RegData
+  flopr_32 a(ReadData1, Aout, reset, clk);
+  flopr_32 b(ReadData2, Bout, reset, clk);
+  EXT ext(inst_out[15:0], EXTOp, ImmNum);
+  assign BrchOffset = ImmNum << 2;
+  mux_4 alusrcA(PC_out, Aout, 32'h0000_0000, {27'd0, inst_out[10:6]}, (ALUSrcA | Shift), ALUsrc1); //ALUSrcA
+  mux_4 alusrcB(Bout, 32'd4, ImmNum, BrchOffset, ALUSrcB, ALUsrc2); //ALUSrcB
+  ALU alu(ALUCtrl, ALUsrc1, ALUsrc2, ALUresult, zero, sign);
+  flopr_32 aluout(ALUresult[31:0], ALUout, reset, clk);
+  assign JumpAddr = {PC_out[31:28], (inst_out[25:0]<<2)};
+  mux_4 pcsrc(ALUresult[31:0], ALUout, JumpAddr, 32'h0000_0000, PCSource, npc);
+  BE Be(inst_out[31:26], ALUout[1:0], be);
+  EXTload extload(Data_in, inst_out[31:26], ALUout[1:0], preMemData);
+  flopr_32 memreg(preMemData, MemData, reset, clk);
+  mux_2 #(32) IORD(PC_out, ALUout, IorD, Addr_out); //IorD
+  
+  /*Control*/
+  Ctrl ctrl(inst_out[31:26], reset, clk,
+             PCWriteCond, PCWrite, MemRead, mem_w, RegData, IRWrite,
+             PCSource, ALUOp, EXTOp, ALUSrcA, ALUSrcB, RegWrite, RegDst, IorD, 
+             state);
+  BrchCtrl brchctrl(PCWriteCond, sign, zero, inst_out[16], Brch);
+  ALUCtrl aluctrl(ALUOp, inst_out[5:0], ALUCtrl, preRegData1, preJump, Shift);
+  flopr_1 delayjump(preJump, Jump, reset, clk);
+  flopr_2 delayregdata(preRegData1, RegData1, reset, clk);
+  
+  
+endmodule

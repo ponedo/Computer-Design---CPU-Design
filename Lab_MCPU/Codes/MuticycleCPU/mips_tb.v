@@ -1,0 +1,111 @@
+module mips_tb();
+  `timescale 1ns/1ps
+  
+  reg clk;
+  reg rst;
+  reg [31:0] InstrAddr;
+  
+  integer i;
+  
+  Multi_CPU MCPU(
+    clk,
+    rst,
+    output [31:0] inst_out,
+    input INT,
+    output [31:0] PC_out,
+    output mem_w,
+    output [31:0] Addr_out,
+    input [31:0] Data_in,
+    output [31:0] Data_out,
+    output [4:0] state,
+    output CPU_MIO,
+    input MIO_ready
+    );
+		
+	ROM_D rom_d(
+  input [9:0] a,
+  output [31:0] spo
+  );
+  
+  RAM_B ram_b(
+  input [9:0] addra,
+  input wea,
+  input [31:0] dina,
+  input clka,
+  output [31:0] douta
+  );
+  
+  initial
+    begin
+      $readmemh("test.txt", mips.im.im, 12'hc00);
+      clk=1;
+      rst=1;
+      #1 rst=0;
+      #1 rst=1;
+      $display("Instrction load complete, IM is as follow:");
+      for (i=12'hc00; i<12'hc80; i=i+1)
+        $display("%x", mips.im.im[i]);
+      $display("=============================================================================================");
+      $monitor("Register Files has been written\nRF[0-7]:\t%x  %x  %x  %x  %x  %x  %x  %x\nRF[8-15]:\t%x  %x  %x  %x  %x  %x  %x  %x\nRF[16-23]:\t%x  %x  %x  %x  %x  %x  %x  %x\nRF[24-31]:\t%x  %x  %x  %x  %x  %x  %x  %x\n---------------------------------------------------------------------------------------------",
+                mips.rf.RegFile[0], mips.rf.RegFile[1], mips.rf.RegFile[2], mips.rf.RegFile[3],
+                mips.rf.RegFile[4], mips.rf.RegFile[5], mips.rf.RegFile[6], mips.rf.RegFile[7],
+                mips.rf.RegFile[8], mips.rf.RegFile[9], mips.rf.RegFile[10], mips.rf.RegFile[11],
+                mips.rf.RegFile[12], mips.rf.RegFile[13], mips.rf.RegFile[14], mips.rf.RegFile[15],
+                mips.rf.RegFile[16], mips.rf.RegFile[17], mips.rf.RegFile[18], mips.rf.RegFile[19],
+                mips.rf.RegFile[20], mips.rf.RegFile[21], mips.rf.RegFile[22], mips.rf.RegFile[23],
+                mips.rf.RegFile[24], mips.rf.RegFile[25], mips.rf.RegFile[26], mips.rf.RegFile[27],
+                mips.rf.RegFile[28], mips.rf.RegFile[29], mips.rf.RegFile[30], mips.rf.RegFile[31]);
+    end
+    
+  always 
+    begin
+      #5 clk <= ~clk;
+      if ($time%10==0)
+        begin
+          $display("PC=%x\t\tControl Unit state: %d", mips.pc, mips.ctrl.state);
+          $display("Current Instruction Address=%x", InstrAddr);
+          if (mips.ctrl.state==0)
+            begin
+              InstrAddr <= mips.pc;
+              $display("Fetching Instruction Address=%x", mips.pc);
+            end
+          else
+            begin
+              case (mips.ctrl.state)
+                5'd1: $display("Instruction Fetch & RF Read");
+                5'd2: $display("Address calculation of load or store instructions");
+                5'd3: $display("Memory access of load instructions");
+                5'd4: $display("Write-back of load instructions");
+                5'd5: $display("Memory access of store instructions");
+                5'd6: $display("Execution of R-Format");
+                5'd7: $display("R-Format(including jar and jalr) completion");
+                5'd8: $display("beq completion");
+                5'd9: $display("bgez completion");
+                5'd10: $display("bgtz completion");
+                5'd11: $display("blez completion");
+                5'd12: $display("bltz completion");
+                5'd13: $display("bnq completion");
+                5'd14: $display("j completion");
+                5'd15: $display("jal completion");
+                5'd16: $display("Execution of addi");
+                5'd17: $display("Execution of addiu");
+                5'd18: $display("Execution of slti");
+                5'd19: $display("Execution of sltiu");
+                5'd20: $display("Execution of andi");
+                5'd21: $display("Execution of ori");
+                5'd22: $display("Execution of xori");
+                5'd23: $display("Execution of lui");
+                5'd24: $display("I-format completion");
+                default: ;
+              endcase
+              $display("Signals are as follows:\nPCWriteCond=%b\tPCWrite=%b\tMemRead=%b\tMemWrite=%b\nRegData=%b\tIRWrite=%b\tPCSource=%b\tALUOp=%b\nEXTOp=%b\tALUSrcA=%b\tALUSrcB=%b\tRegWrite=%b\nRegDst=%b\tALUCtrl=%b\tpreJump=%b\tJump=%b\nPCWr=%b\tShift=%b\tpreRegData1=%b\tRegData1=%b",
+              mips.PCWriteCond, mips.PCWrite, mips.MemRead, mips.MemWrite,
+              mips.RegData, mips.IRWrite, mips.PCSource, mips.ALUOp,
+              mips.EXTOp, mips.ALUSrcA, mips.ALUSrcB, mips.RegWrite,
+              mips.RegDst, mips.ALUCtrl, mips.preJump, mips.Jump,
+              mips.PCWr, mips.Shift, mips.preRegData1, mips.RegData1);
+            end
+          $display("=====================================End of Stage(Cycle)=====================================");
+        end
+    end
+endmodule

@@ -1,0 +1,274 @@
+`include "./INTR_defines.v"
+
+module PCPU_INTR(  
+   	input clk,
+	  input reset,
+		input MIO_ready,
+		input [31:0]inst_in, 
+		input [31:0]Data_in, 
+		output mem_w,
+		output[31:0]PC_out,
+		output[31:0]Addr_out,
+		output[31:0]Data_out, 
+		output CPU_MIO,
+		input INT, 
+		output Inta
+		);
+  
+  /*Wires*/
+  wire [31:0] pc_next;
+  wire [31:0] pre_pc_next;
+  wire [31:0] pre_pre_pc_next;
+  wire [31:0] pc_4_ID;
+  
+  wire [31:0] Instr_ID;
+  wire [31:0] ReadData1_ID;
+  wire [31:0] ReadData2_ID;
+  wire [31:0] Imm_ID;
+  wire [5:0] Rs_ID;
+  wire [5:0] Rt_ID;
+  wire [5:0] Rd_ID;
+  wire [31:0] CmpA_wire;
+  wire [31:0] CmpB_wire;
+  
+  wire [5:0] Op_EX;
+  wire [31:0] ReadData1_EX;
+  wire [31:0] ReadData2_EX;
+  wire [4:0] Shamt_EX;
+  wire [31:0] Imm_EX;
+  wire [5:0] Funct_EX;
+  wire [5:0] Rs_EX;
+  wire [5:0] Rt_EX;
+  wire [5:0] Rd_EX;
+  wire [31:0] pre_ALU_A;
+  wire [31:0] pre_ALU_B;
+  wire [31:0] ALU_A;
+  wire [31:0] ALU_B;
+  wire [63:0] ALUResult_EX;
+  wire [5:0] Rd_real_EX;
+  
+  wire [5:0] Op_MEM;
+  wire [31:0] ALUResult_MEM;
+  wire [31:0] Data_MEM;
+  wire [5:0] Rd_MEM;
+  wire [31:0] MemData_MEM;
+  
+  wire [31:0] ALUResult_WB;
+  wire [31:0] MemData_WB;
+  wire [5:0] Rd_WB;
+  
+  wire [31:0] WriteData;
+
+  /*Signals*/
+  wire MemRead;
+  wire MemWrite;
+  wire [1:0] RegData; 
+  wire [3:0] ALUOp;
+  wire ALUSrcA;
+  wire ALUSrcB;
+  wire RegWrite;
+  wire RegDst;
+  wire [31:0] pc_ID;
+  wire RegWrite_ID;
+  wire [1:0] RegData_ID;
+  wire MemRead_ID;
+  wire MemWrite_ID;
+  wire ALUSrcA_ID;
+  wire ALUSrcB_ID;
+  wire [3:0] ALUOp_ID;
+  wire RegDst_ID;
+  wire [1:0] EXTOp;
+  wire [3:0] PCWriteCond;
+  wire [1:0] Jump;
+  wire [1:0] Link;
+  wire Stall;
+  wire PCWrite;
+  wire IF_IDWrite;
+  wire Brch;
+  wire [1:0] Jmp;
+  wire [1:0] CmpA;
+  wire [1:0] CmpB;
+  wire [31:0] pc_EX;
+  wire RegWrite_EX;
+  wire [1:0] RegData_EX;
+  wire MemRead_EX;
+  wire MemWrite_EX;
+  wire ALUSrcA_EX;
+  wire ALUSrcB_EX;
+  wire [3:0] ALUOp_EX;
+  wire RegDst_EX;
+  wire [1:0] ForwardA;
+  wire [1:0] ForwardB;
+  wire [4:0] ALUCtrl;
+  wire RegWrite_MEM;
+  wire [1:0] RegData_MEM;
+  wire MemRead_MEM;
+  wire MemWrite_MEM;
+  wire [3:0] Be;
+  wire U;
+  wire RegWrite_WB;
+  wire [1:0] RegData_WB;
+  
+  /*Wires for interrupts*/
+  wire ov;
+  wire Intr;
+  wire [31:0] epc_in;
+  wire [31:0] status_in;
+  wire [31:0] cause_in;
+  wire [31:0] epc;
+  wire [31:0] status;
+  wire [31:0] cause;
+  wire [31:0] c0Data_ID;
+  wire [31:0] c0Data_EX;
+  wire [31:0] c0Data_MEM;
+  wire [31:0] c0Data_WB;
+  
+  /*Signals for interrupts*/
+  wire [1:0] EPCSelect;
+  wire [1:0] StaSelect;
+  wire CauseSelect;
+  wire EPCWrite;
+  wire StaWrite;
+  wire CauseWrite;
+  wire [1:0] cau;
+  wire [1:0] PCSource;
+  wire Cancel_IF;
+  wire Cancel_ID;
+  wire [1:0] C0RegData;
+  wire mtc0;
+  wire mfc0;
+  wire mfc0_ID;
+  wire mfc0_EX;
+  wire mfc0_MEM;
+  wire mfc0_WB;
+  
+  assign mem_w = MemWrite_MEM;
+  assign Addr_out = ALUResult_MEM;
+  assign MemData_MEM = Data_in;
+  assign Data_out = Data_MEM;
+  assign intr = INT;
+  
+  /*Datapath*/
+  //IM im(PC_out[31:2], inst_in);
+  PC pc(pc_next, PC_out, reset, clk, PCWrite);
+  
+  RF rf(Instr_ID[25:21], Instr_ID[20:16], Rd_WB[4:0], WriteData, Instr_ID[15:11], pc_4_ID, 
+           clk, RegWrite_WB, Link, reset, ReadData1_ID, ReadData2_ID);
+  EXT ext(Instr_ID[15:0], EXTOp, Imm_ID);
+  
+  ALU alu(ALUCtrl, ALU_A, ALU_B, ALUResult_EX, zero, sign, ov);
+  
+  BE be(Op_MEM, ALUResult_MEM[1:0], Be, U);
+  //DM dm(ALUResult_MEM[31:2], Be, U, Data_MEM, MemRead_MEM, MemWrite_MEM, clk, MemData_MEM);
+  EPC Epc(epc_in, epc, reset, clk, EPCWrite);
+  
+  Cause Cause(cause_in, cause, reset, clk, CauseWrite);
+  
+  Status Status(status_in, status, reset, clk, StaWrite);
+  
+  assign Rs_ID = {(mfc0 | mtc0), Instr_ID[25:21]}; //Rs illegal when mfc0, mtc0
+  assign Rt_ID = {1'b0, Instr_ID[20:16]};          //Extend RegAddr to 6-bit size
+  assign Rd_ID = {(mfc0 | mtc0), Instr_ID[15:11]};
+  
+  /*Floprs*/
+  IF_ID if_id(inst_in, (PC_out + 4), Instr_ID, pc_4_ID, clk, reset, IF_IDWrite, (Brch | Jmp[0] | Cancel_IF));
+  ID_EX id_ex(pc_ID, pc_EX, 
+              RegWrite_ID, RegWrite_EX, RegData_ID, RegData_EX, MemRead_ID, MemRead_EX, 
+              MemWrite_ID, MemWrite_EX, ALUSrcA_ID, ALUSrcA_EX, ALUSrcB_ID, ALUSrcB_EX,
+              ALUOp_ID, ALUOp_EX, RegDst_ID, RegDst_EX, Instr_ID[31:26], Op_EX,
+              ReadData1_ID, ReadData1_EX, ReadData2_ID, ReadData2_EX,
+              Instr_ID[10:6], Shamt_EX, Imm_ID, Imm_EX, Instr_ID[5:0], Funct_EX,
+              Rs_ID, Rs_EX, Rt_ID, Rt_EX, Rd_ID, Rd_EX, 
+              c0Data_ID, c0Data_EX, mfc0_ID, mfc0_EX, 
+              clk, reset, 
+              Cancel_ID);
+  EX_MEM ex_mem
+             (RegWrite_EX, RegWrite_MEM, RegData_EX, RegData_MEM, 
+              MemRead_EX, MemRead_MEM, MemWrite_EX, MemWrite_MEM,
+              Op_EX, Op_MEM, ALUResult_EX[31:0], ALUResult_MEM,
+              pre_ALU_B, Data_MEM, Rd_real_EX, Rd_MEM, 
+              c0Data_EX, c0Data_MEM, mfc0_EX, mfc0_MEM, 
+              clk, reset, 
+              ov);
+  MEM_WB mem_wb
+             (RegWrite_MEM, RegWrite_WB, 
+              RegData_MEM, RegData_WB, 
+              ALUResult_MEM, ALUResult_WB,
+              MemData_MEM, MemData_WB,
+              Rd_MEM, Rd_WB, 
+              c0Data_MEM, c0Data_WB, mfc0_MEM, mfc0_WB, 
+              clk, reset);
+  
+  /*Mutiplexors*/
+  mux_2 #32 branch((PC_out + 4), (pc_4_ID + (Imm_ID << 2)), Brch, pre_pre_pc_next);
+  mux_4 #32 jump(pre_pre_pc_next,{ pc_4_ID[31:28] , Instr_ID[25:0] , 2'b00}, 0, CmpA_wire, Jmp, pre_pc_next);
+  mux_4 #32 intr_exc(pre_pc_next, `INTR_HANDLER, epc, 32'h0000_0000, PCSource, pc_next);
+  
+  mux_4 #32 cmpA(
+    ReadData1_ID, 
+    (mfc0_WB ? c0Data_WB : WriteData), 
+    (mfc0_MEM ? c0Data_MEM : ALUResult_MEM),
+    32'h0000_0000, CmpA, CmpA_wire);
+  mux_4 #32 cmpB(
+    ReadData2_ID, 
+    (mfc0_WB ? c0Data_WB : WriteData), 
+    (mfc0_MEM ? c0Data_MEM : ALUResult_MEM), 
+    32'h0000_0000, CmpB, CmpB_wire);
+  mux_2 #1 mr_stall(MemRead, 1'b0, Stall, MemRead_ID);
+  mux_2 #1 mw_stall(MemWrite, 1'b0, Stall, MemWrite_ID);
+  mux_2 #2 rdata_stall(RegData, 2'b00, Stall, RegData_ID);
+  mux_2 #4 aluop_stall(ALUOp, 4'b0000, Stall, ALUOp_ID);
+  mux_2 #1 aluA_stall(ALUSrcA, 1'b0, Stall, ALUSrcA_ID);
+  mux_2 #1 aluB_stall(ALUSrcB, 1'b0, Stall, ALUSrcB_ID);
+  mux_2 #1 rw_stall(RegWrite, 1'b0, Stall, RegWrite_ID);
+  mux_2 #1 rdst_stall(RegDst, 1'b0, Stall, RegDst_ID);
+  mux_2 #32 pc_stall((pc_4_ID - 4), 32'h0000_0000, Stall, pc_ID);
+  mux_2 #1 mfc0_stall(mfc0, 1'b0, Stall, mfc0_ID);
+  
+  mux_4 #32 forwardA(
+    ReadData1_EX, 
+    (mfc0_WB ? c0Data_WB : WriteData), 
+    (mfc0_MEM ? c0Data_MEM : ALUResult_MEM), 
+    32'h0000_0000, ForwardA, pre_ALU_A);
+  mux_4 #32 forwardB(
+    ReadData2_EX, 
+    (mfc0_WB ? c0Data_WB : WriteData), 
+    (mfc0_MEM ? c0Data_MEM : ALUResult_MEM), 
+    32'h0000_0000, ForwardB, pre_ALU_B);
+  mux_2 #32 shift(pre_ALU_A, { 27'h000_0000 , Shamt_EX }, ALUSrcA_EX, ALU_A);
+  mux_2 #32 imm(pre_ALU_B, Imm_EX, ALUSrcB_EX, ALU_B);
+  mux_2 #6 rdst(Rt_EX, Rd_EX, RegDst_EX, Rd_real_EX);
+  
+  mux_4 #32 rdata(ALUResult_WB, MemData_WB, c0Data_WB, 32'h0000_0000, RegData_WB, WriteData);
+  
+  mux_4 #32 epc_select((pc_4_ID - 4), PC_out, pc_EX, CmpB_wire, EPCSelect, epc_in);
+  mux_4 #32 status_select((status << 4), (status >> 4), CmpB_wire, 32'h0000_0000, StaSelect, status_in);
+  mux_2 #32 cause_select({28'h000_0000, cau, 2'b00}, CmpB_wire, CauseSelect, cause_in);
+  
+  mux_4 #32 c0_data(epc, cause, status, 32'h0000_0000, C0RegData, c0Data_ID);
+  
+  /*Control*/
+  Hazard_detection_unit hdu
+           (MemRead_EX, MemRead_MEM, RegWrite_EX, 
+            PCWriteCond, Jump, mtc0, 
+            Rd_real_EX, Rd_MEM, Rs_ID, Rt_ID, 
+            Stall, PCWrite, IF_IDWrite);
+  Ctrl ctrl(Instr_ID[31:0], reset, clk,
+            PCWriteCond, MemRead, MemWrite, RegData, Jump, Link, 
+            ALUOp, EXTOp, ALUSrcA, ALUSrcB, RegWrite, RegDst, 
+            Intr, Inta, ov, status[3:0], Brch, 
+            EPCWrite, StaWrite, CauseWrite, 
+            EPCSelect, StaSelect, CauseSelect, PCSource, cau, 
+            Cancel_IF, Cancel_ID, C0RegData, mfc0, mtc0);
+  BrchCtrl brchctrl(PCWriteCond, Stall, CmpA_wire, CmpB_wire, Brch);
+  assign Jmp = Stall ? 2'b00 : Jump;
+  
+  ALUCtrl aluctrl(ALUOp_EX, Funct_EX, ALUCtrl);
+  Forwarding_unit fwdu
+           (Rs_EX, Rt_EX, Rs_ID, Rt_ID, 
+            Rd_MEM, Rd_WB, PCWriteCond, Jump, mtc0, RegWrite_MEM, RegWrite_WB, 
+            ForwardA, ForwardB, CmpA, CmpB);
+  
+  
+endmodule
+

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated   -->
+<!--     by the Xilinx ISE software.  Any direct editing or        -->
+<!--     changes made to this file may result in unpredictable     -->
+<!--     behavior or data corruption.  It is strongly advised that -->
+<!--     users do not edit the contents of this file.              -->
+<!--                                                               -->
+<!-- Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.    -->
+
+<messages>
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/GODP/Lab_MCPU/Codes/IO/Counter_3_IO.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/GODP/Lab_MCPU/Codes/IO/MIO_BUS_IO.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/GODP/Lab_MCPU/Codes/IO/Multi_8CH32_IO.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/GODP/Lab_MCPU/Codes/IO/SAnti_jitter_IO.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/GODP/Lab_MCPU/Codes/IO/SEnter_2_32_IO.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/GODP/Lab_MCPU/Codes/IO/SPIO_IO.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/GODP/Lab_MCPU/Codes/IO/SSeg7_Dev_IO.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/GODP/Lab_MCPU/Codes/IO/clk_div.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/GODP/Lab_MCPU/Codes/MuticycleCPU/ALU.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">D:/GODP/Lab_MCPU/Codes/MuticycleCPU/ALU.v</arg>&quot; Line <arg fmt="%d" index="2">1</arg>. <arg fmt="%s" index="3">Include file found: &apos;D:/GODP/Lab_MCPU/Codes/MuticycleCPU/./ALU_defines.v&apos; in file &quot;D:/GODP/Lab_MCPU/Codes/MuticycleCPU/ALU.v&quot; line 1
+</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/GODP/Lab_MCPU/Codes/MuticycleCPU/ALUctrl.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">D:/GODP/Lab_MCPU/Codes/MuticycleCPU/ALUctrl.v</arg>&quot; Line <arg fmt="%d" index="2">1</arg>. <arg fmt="%s" index="3">Include file found: &apos;D:/GODP/Lab_MCPU/Codes/MuticycleCPU/./ALU_defines.v&apos; in file &quot;D:/GODP/Lab_MCPU/Codes/MuticycleCPU/ALUctrl.v&quot; line 1
+</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">D:/GODP/Lab_MCPU/Codes/MuticycleCPU/ALUctrl.v</arg>&quot; Line <arg fmt="%d" index="2">2</arg>. <arg fmt="%s" index="3">Include file found: &apos;D:/GODP/Lab_MCPU/Codes/MuticycleCPU/./Instr_defines.v&apos; in file &quot;D:/GODP/Lab_MCPU/Codes/MuticycleCPU/ALUctrl.v&quot; line 2
+</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/GODP/Lab_MCPU/Codes/MuticycleCPU/BE.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/GODP/Lab_MCPU/Codes/MuticycleCPU/BrchCtrl.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">D:/GODP/Lab_MCPU/Codes/MuticycleCPU/BrchCtrl.v</arg>&quot; Line <arg fmt="%d" index="2">1</arg>. <arg fmt="%s" index="3">Include file found: &apos;D:/GODP/Lab_MCPU/Codes/MuticycleCPU/./Brch_defines.v&apos; in file &quot;D:/GODP/Lab_MCPU/Codes/MuticycleCPU/BrchCtrl.v&quot; line 1
+</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/GODP/Lab_MCPU/Codes/MuticycleCPU/Ctrl.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">D:/GODP/Lab_MCPU/Codes/MuticycleCPU/Ctrl.v</arg>&quot; Line <arg fmt="%d" index="2">1</arg>. <arg fmt="%s" index="3">Include file found: &apos;D:/GODP/Lab_MCPU/Codes/MuticycleCPU/./ALU_defines.v&apos; in file &quot;D:/GODP/Lab_MCPU/Codes/MuticycleCPU/Ctrl.v&quot; line 1
+</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">D:/GODP/Lab_MCPU/Codes/MuticycleCPU/Ctrl.v</arg>&quot; Line <arg fmt="%d" index="2">2</arg>. <arg fmt="%s" index="3">Include file found: &apos;D:/GODP/Lab_MCPU/Codes/MuticycleCPU/./EXT_defines.v&apos; in file &quot;D:/GODP/Lab_MCPU/Codes/MuticycleCPU/Ctrl.v&quot; line 2
+</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">D:/GODP/Lab_MCPU/Codes/MuticycleCPU/Ctrl.v</arg>&quot; Line <arg fmt="%d" index="2">3</arg>. <arg fmt="%s" index="3">Include file found: &apos;D:/GODP/Lab_MCPU/Codes/MuticycleCPU/./Instr_defines.v&apos; in file &quot;D:/GODP/Lab_MCPU/Codes/MuticycleCPU/Ctrl.v&quot; line 3
+</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">D:/GODP/Lab_MCPU/Codes/MuticycleCPU/Ctrl.v</arg>&quot; Line <arg fmt="%d" index="2">4</arg>. <arg fmt="%s" index="3">Include file found: &apos;D:/GODP/Lab_MCPU/Codes/MuticycleCPU/./Brch_defines.v&apos; in file &quot;D:/GODP/Lab_MCPU/Codes/MuticycleCPU/Ctrl.v&quot; line 4
+</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/GODP/Lab_MCPU/Codes/MuticycleCPU/EXT.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">D:/GODP/Lab_MCPU/Codes/MuticycleCPU/EXT.v</arg>&quot; Line <arg fmt="%d" index="2">1</arg>. <arg fmt="%s" index="3">Include file found: &apos;D:/GODP/Lab_MCPU/Codes/MuticycleCPU/./EXT_defines.v&apos; in file &quot;D:/GODP/Lab_MCPU/Codes/MuticycleCPU/EXT.v&quot; line 1
+</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/GODP/Lab_MCPU/Codes/MuticycleCPU/EXTload.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/GODP/Lab_MCPU/Codes/MuticycleCPU/IR.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/GODP/Lab_MCPU/Codes/MuticycleCPU/Multi_CPU.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/GODP/Lab_MCPU/Codes/MuticycleCPU/PC.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/GODP/Lab_MCPU/Codes/MuticycleCPU/RegFile.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/GODP/Lab_MCPU/Codes/MuticycleCPU/flopr.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/GODP/Lab_MCPU/Codes/MuticycleCPU/flopr_1.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/GODP/Lab_MCPU/Codes/MuticycleCPU/flopr_2.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/GODP/Lab_MCPU/Codes/MuticycleCPU/flopr_32.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/GODP/Lab_MCPU/Codes/MuticycleCPU/mux_2.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/GODP/Lab_MCPU/Codes/MuticycleCPU/mux_4.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/GODP/Lab_MCPU/Codes/topMCPU.v&quot; into library work</arg>
+</msg>
+
+</messages>
+

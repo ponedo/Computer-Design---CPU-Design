@@ -1,0 +1,107 @@
+/************************************************
+  The Verilog HDL code example is from the book
+  Computer Principles and Design in Verilog HDL
+  by Yamin Li, published by A JOHN WILEY & SONS
+************************************************/
+`timescale 1ns/1ns
+module sc_interrupt_tb;
+
+    reg         clk,clrn,intr;
+    reg  [31:0] queue [4:0];
+    reg         Cancel_ID_delay;
+    wire [31:0] inst,pc,aluout,memout,data_to_CPU,data_from_CPU, addr;
+    wire        inta,memwrite;
+    
+    integer i;
+    integer pointer;
+
+		PCPU_INTR pcpu_intr(  
+   	.clk(clk),
+	  .reset(clrn),
+		.MIO_ready(),
+		.inst_in(inst),
+		.Data_in(data_to_CPU),								
+		.mem_w(memwrite),
+		.PC_out(pc),
+		.Addr_out(addr),
+		.Data_out(data_from_CPU), 
+	  .CPU_MIO(),
+		.INT(intr)
+		);
+		
+	ROM_D rom_d(
+  .a(pc[11:2]),
+  .spo(inst)
+  );
+  
+  RAM_B ram_b(
+  .addra(addr[11:2]),
+  .wea(memwrite),
+  .dina(data_from_CPU),
+  .clka(clk),
+  .douta(data_to_CPU)
+  );
+  
+    initial
+    begin
+      pointer=0;
+      Cancel_ID_delay=0;
+      $readmemh("test.txt", rom_d.Mem_unit, 0);
+      $readmemh("scd_intr.dat", ram_b.Mem_unit, 0);
+      
+              clrn   = 0;
+              clk    = 1;
+              intr   = 0;
+        #5    clrn   = 1;
+        #1    clrn   = 0;
+        
+      $display("Instrction load complete, ROM is as follow:");
+      for (i=0; i<31; i=i+1)
+        $display("%x", rom_d.Mem_unit[i]);
+      for (i=0; i<31; i=i+1)
+        $display("%x", pcpu_intr.rf.RegFile[i]);
+      for (i=0; i<31; i=i+1)
+        $display("%x", ram_b.Mem_unit[i]);
+      $display("=============================================================================================");
+      
+        #1400 intr   = 1;
+        #20   intr   = 0;
+    
+    end
+
+    always #10 clk  = !clk;
+    
+    always @ (posedge clk)
+    begin
+      $display("Currently Fetching: Instruction at: \n  %x", pcpu_intr.PC_out);
+      if (pcpu_intr.Stall)
+        begin
+          queue[pointer]=queue[(pointer+4)%5];
+          queue[(pointer+4)%5]=32'h0000_0000;
+        end
+      else
+        begin
+          queue[pointer]=pcpu_intr.PC_out;
+          if(Cancel_ID_delay)
+            queue[(pointer+3)%5]=32'h0000_0000;
+        end
+      if (((pcpu_intr.Brch | pcpu_intr.Jmp[0])==1) || (pcpu_intr.PCSource!=2'b00))
+        queue[pointer]=32'h0000_0000;
+      $display("---------------------------------------------------------------------------------------------");
+      $display("Currently Queue:\n  %x  %x  %x  %x  %x", queue[pointer], queue[(pointer+4)%5], queue[(pointer+3)%5], queue[(pointer+2)%5], queue[(pointer+1)%5]);
+      pointer=(pointer+1)%5;
+      Cancel_ID_delay=pcpu_intr.Cancel_ID;
+      $display("---------------------------------------------------------------------------------------------");
+      $display("End of Cycle!");
+      $display("Register Files:\nRF[0-7]:\t%x  %x  %x  %x  %x  %x  %x  %x\nRF[8-15]:\t%x  %x  %x  %x  %x  %x  %x  %x\nRF[16-23]:\t%x  %x  %x  %x  %x  %x  %x  %x\nRF[24-31]:\t%x  %x  %x  %x  %x  %x  %x  %x\n=============================================================================================",
+                pcpu_intr.rf.RegFile[0], pcpu_intr.rf.RegFile[1], pcpu_intr.rf.RegFile[2], pcpu_intr.rf.RegFile[3],
+                pcpu_intr.rf.RegFile[4], pcpu_intr.rf.RegFile[5], pcpu_intr.rf.RegFile[6], pcpu_intr.rf.RegFile[7],
+                pcpu_intr.rf.RegFile[8], pcpu_intr.rf.RegFile[9], pcpu_intr.rf.RegFile[10], pcpu_intr.rf.RegFile[11],
+                pcpu_intr.rf.RegFile[12], pcpu_intr.rf.RegFile[13], pcpu_intr.rf.RegFile[14], pcpu_intr.rf.RegFile[15],
+                pcpu_intr.rf.RegFile[16], pcpu_intr.rf.RegFile[17], pcpu_intr.rf.RegFile[18], pcpu_intr.rf.RegFile[19],
+                pcpu_intr.rf.RegFile[20], pcpu_intr.rf.RegFile[21], pcpu_intr.rf.RegFile[22], pcpu_intr.rf.RegFile[23],
+                pcpu_intr.rf.RegFile[24], pcpu_intr.rf.RegFile[25], pcpu_intr.rf.RegFile[26], pcpu_intr.rf.RegFile[27],
+                pcpu_intr.rf.RegFile[28], pcpu_intr.rf.RegFile[29], pcpu_intr.rf.RegFile[30], pcpu_intr.rf.RegFile[31]);
+    end
+    
+endmodule

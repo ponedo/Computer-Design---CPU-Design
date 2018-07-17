@@ -1,0 +1,6 @@
+`define INTR_HANDLER 32'h0000_0080
+
+`define EXC_CODE_INT 2'b00
+`define EXC_CODE_SYS 2'b01
+`define EXC_CODE_UNIMPL 2'b10
+`define EXC_CODE_OV 2'b11

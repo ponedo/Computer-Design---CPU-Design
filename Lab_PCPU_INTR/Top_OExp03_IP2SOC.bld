@@ -1,0 +1,136 @@
+Release 14.7 ngdbuild P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Command Line: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\ngdbuild.exe
+-intstyle ise -dd _ngo -sd Codes/IO -sd ipcore_dir -nt timestamp -uc
+Codes/Org-Sword.ucf -p xc7k160t-ffg676-2L Top_OExp03_IP2SOC.ngc
+Top_OExp03_IP2SOC.ngd
+
+Reading NGO file "D:/GODP/Lab_PCPU_INTR/Top_OExp03_IP2SOC.ngc" ...
+Loading design module "Codes/IO/SAnti_jitter.ngc"...
+Loading design module "Codes/IO/SEnter_2_32.ngc"...
+Loading design module "Codes/IO/MIO_BUS.ngc"...
+Loading design module "Codes/IO/SSeg7_Dev.ngc"...
+Loading design module "Codes/IO/Multi_8CH32.ngc"...
+Loading design module "Codes/IO/SPIO.ngc"...
+Loading design module "ipcore_dir/RAM_B.ngc"...
+Loading design module "ipcore_dir/ROM_D.ngc"...
+Gathering constraint information from source properties...
+Done.
+
+Annotating constraints to design from ucf file "Codes/Org-Sword.ucf" ...
+Resolving constraint associations...
+Checking Constraint Associations...
+WARNING:ConstraintSystem - A target design object for the Locate constraint
+   '<NET "SW<8>" LOC = F12>' could not be found and so the Locate constraint
+   will be removed.
+
+WARNING:ConstraintSystem - A target design object for the Locate constraint
+   '<NET "SW<9>" LOC = G12>' could not be found and so the Locate constraint
+   will be removed.
+
+WARNING:ConstraintSystem - A target design object for the Locate constraint
+   '<NET "SW<10>" LOC = H14>' could not be found and so the Locate constraint
+   will be removed.
+
+WARNING:ConstraintSystem - A target design object for the Locate constraint
+   '<NET "SW<11>" LOC = H13>' could not be found and so the Locate constraint
+   will be removed.
+
+WARNING:ConstraintSystem - A target design object for the Locate constraint
+   '<NET "SW<12>" LOC = J14>' could not be found and so the Locate constraint
+   will be removed.
+
+WARNING:ConstraintSystem - A target design object for the Locate constraint
+   '<NET "SW<13>" LOC = J13>' could not be found and so the Locate constraint
+   will be removed.
+
+WARNING:ConstraintSystem - A target design object for the Locate constraint
+   '<NET "SW<14>" LOC = K14>' could not be found and so the Locate constraint
+   will be removed.
+
+WARNING:ConstraintSystem - A target design object for the Locate constraint
+   '<NET "SW<15>" LOC = K13>' could not be found and so the Locate constraint
+   will be removed.
+
+WARNING:ConstraintSystem - A target design object for the Locate constraint
+   '<NET "BTN_y<0>" LOC = D14>' could not be found and so the Locate constraint
+   will be removed.
+
+WARNING:ConstraintSystem - A target design object for the Locate constraint
+   '<NET "BTN_y<1>" LOC = G14>' could not be found and so the Locate constraint
+   will be removed.
+
+WARNING:ConstraintSystem - A target design object for the Locate constraint
+   '<NET "BTN_y<2>" LOC = F14>' could not be found and so the Locate constraint
+   will be removed.
+
+WARNING:ConstraintSystem - A target design object for the Locate constraint
+   '<NET "BTN_y<3>" LOC = E13>' could not be found and so the Locate constraint
+   will be removed.
+
+WARNING:ConstraintSystem - A target design object for the Locate constraint
+   '<NET "clk_100mhz" LOC = T9>' could not be found and so the Locate constraint
+   will be removed.
+
+WARNING:NgdBuild:1012 - The constraint <NET "SW<8>" LOC = F12> is overridden on
+   the design object SW<8> by the constraint <NET "SW[8]"				LOC = AE10      |>
+   [Codes/Org-Sword.ucf(39)].
+WARNING:NgdBuild:1012 - The constraint <NET "SW<9>" LOC = G12> is overridden on
+   the design object SW<9> by the constraint <NET "SW[9]"				LOC = AE12      |>
+   [Codes/Org-Sword.ucf(40)].
+WARNING:NgdBuild:1012 - The constraint <NET "SW<10>" LOC = H14> is overridden on
+   the design object SW<10> by the constraint <NET "SW[10]"			LOC = AF12      |>
+   [Codes/Org-Sword.ucf(41)].
+WARNING:NgdBuild:1012 - The constraint <NET "SW<11>" LOC = H13> is overridden on
+   the design object SW<11> by the constraint <NET "SW[11]"			LOC = AE8       |>
+   [Codes/Org-Sword.ucf(42)].
+WARNING:NgdBuild:1012 - The constraint <NET "SW<12>" LOC = J14> is overridden on
+   the design object SW<12> by the constraint <NET "SW[12]"			LOC = AF8       |>
+   [Codes/Org-Sword.ucf(43)].
+WARNING:NgdBuild:1012 - The constraint <NET "SW<13>" LOC = J13> is overridden on
+   the design object SW<13> by the constraint <NET "SW[13]"			LOC = AE13      |>
+   [Codes/Org-Sword.ucf(44)].
+WARNING:NgdBuild:1012 - The constraint <NET "SW<14>" LOC = K14> is overridden on
+   the design object SW<14> by the constraint <NET "SW[14]"			LOC = AF13      |>
+   [Codes/Org-Sword.ucf(45)].
+WARNING:NgdBuild:1012 - The constraint <NET "SW<15>" LOC = K13> is overridden on
+   the design object SW<15> by the constraint <NET "SW[15]"			LOC = AF10      |>
+   [Codes/Org-Sword.ucf(46)].
+WARNING:NgdBuild:1012 - The constraint <NET "BTN_y<0>" LOC = D14> is overridden
+   on the design object BTN_y<0> by the constraint <NET "BTN_y[0]"				LOC = V18 
+        |> [Codes/Org-Sword.ucf(26)].
+WARNING:NgdBuild:1012 - The constraint <NET "BTN_y<1>" LOC = G14> is overridden
+   on the design object BTN_y<1> by the constraint <NET "BTN_y[1]"				LOC = V19 
+        |> [Codes/Org-Sword.ucf(27)].
+WARNING:NgdBuild:1012 - The constraint <NET "BTN_y<2>" LOC = F14> is overridden
+   on the design object BTN_y<2> by the constraint <NET "BTN_y[2]"				LOC = V14 
+        |> [Codes/Org-Sword.ucf(28)].
+WARNING:NgdBuild:1012 - The constraint <NET "BTN_y<3>" LOC = E13> is overridden
+   on the design object BTN_y<3> by the constraint <NET "BTN_y[3]"				LOC = W14 
+        |> [Codes/Org-Sword.ucf(29)].
+WARNING:NgdBuild:1012 - The constraint <NET "clk_100mhz" LOC = T9> is overridden
+   on the design object clk_100mhz by the constraint <NET "clk_100mhz"					LOC =
+   AC18      |> [Codes/Org-Sword.ucf(1)].
+Done...
+
+Checking expanded design ...
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+NGDBUILD Design Results Summary:
+  Number of errors:     0
+  Number of warnings:  26
+
+Total memory usage is 306984 kilobytes
+
+Writing NGD file "Top_OExp03_IP2SOC.ngd" ...
+Total REAL time to NGDBUILD completion:  30 sec
+Total CPU time to NGDBUILD completion:   30 sec
+
+Writing NGDBUILD log file "Top_OExp03_IP2SOC.bld"...
